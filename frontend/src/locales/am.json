@@ -1,0 +1,231 @@
+{
+  "navbar": {
+    "logo": "ሶሰር",
+    "home": "ቤት",
+    "about_us": "ስለ እኛ",
+    "about": {
+      "team": "ቡድን",
+      "mission_vision": "ተልዕኮ እና ራዕይ",
+      "partners": "አጋሮች"
+    },
+    "services": "አገልግሎቶች",
+    "services_dropdown": {
+      "savings": "ቁጠባ",
+      "loans": "ብድር",
+      "insurance": "ኢንሹራንስ",
+      "digital_banking": "ዲጂታል ባንኪንግ"
+    },
+    "news": "ዜና",
+    "news_dropdown": {
+      "announcements": "ማስታወቂያዎች",
+      "events": "ዝግጅቶች",
+      "vacancies": "ክፍት ቦታዎች"
+    },
+    "testimonials": "ምስክርነቶች",
+    "testimonials_dropdown": {
+      "documents": "ሰነዶች",
+      "success_stories": "የስኬት ታሪኮች"
+    },
+    "multimedia": "ማልቲሚዲያ",
+    "multimedia_dropdown": {
+      "gallery": "ጋለሪ",
+      "videos": "ቪዲዮዎች"
+    },
+    "contact": "እውቂያ",
+    "contact_dropdown": {
+      "faq": "ተደጋጋሚ ጥያቄዎች",
+      "offices": "ቢሮዎች"
+    },
+    "payment": "ክፍያ",
+    "get_started": "ጀምር",
+    "login": "ግባ"
+  },
+  "home": {
+    "hero": {
+      "title_part1": "ማህበረሰቦችን ማብቃት፣",
+      "title_typed": "ከሶሰር ጋር ያድጉ",
+      "description": "ወደ ሶሰር እንኳን በደህና መጡ – ለቁጠባ፣ ብድር፣ ኢንሹራንስ እና ዲጂታል ባንኪንግ መፍትሄዎች የታመነ የፋይናንስ አጋርዎ።",
+      "get_started": "ዛሬ ይጀምሩ",
+      "learn_more": "ተጨማሪ ይወቁ"
+    },
+    "about": {
+      "title": "ስለ ሶሰር",
+      "description": "ሶሰር ለአካባቢያዊ ልማት የተዘጋጁ የፈጠራ ቁጠባ፣ ብድር እና ኢንሹራንስ አገልግሎቶችን የሚያቀርብ ማህበረሰብ-ተኮር የፋይናንስ ህብረት ሥራ ነው። በኢትዮጵያ ውስጥ ግለሰቦችንና ማህበረሰቦችን የፋይናንስ ብልጽግና እና የመቋቋም አቅምን ለማሳካት ለዲጂታል ለውጥ እና ሁሉን አቀፍ ባንኪንግ ቁርጠኛ ነን።",
+      "learn_more": "ስለ እኛ ተጨማሪ ይወቁ"
+    },
+    "services": {
+      "title": "የእኛ አገልግሎቶች",
+      "description": "ለግል እና ለቢዝነስ ፍላጎቶችዎ የተነደፉ ሁሉን አቀፍ የፋይናንስ መፍትሄዎች።",
+      "items": {
+        "savings": {
+          "title": "ቁጠባ",
+          "description": "ተወዳዳሪ የወለድ ተመኖችን የሚያቀርቡ ተለዋዋጭ የቁጠባ ሂሳቦች ጋር የወደፊትዎን ይጠብቁ።",
+          "link": "ተጨማሪ ይወቁ"
+        },
+        "loans": {
+          "title": "ብድር",
+          "description": "ለግል፣ ለቢዝነስ እና ለግብርና ፍላጎቶች ተለዋዋጭ ውሎች ያላቸው ተመጣጣኝ ብድሮችን ያግኙ።",
+          "link": "ተጨማሪ ይወቁ"
+        },
+        "insurance": {
+          "title": "ኢንሹራንስ",
+          "description": "ሁሉን አቀፍ የኢንሹራንስ ሽፋን አማራጮች ጋር እራስዎን እና ንብረቶችዎን ይጠብቁ።",
+          "link": "ተጨማሪ ይወቁ"
+        },
+        "digital_banking": {
+          "title": "ዲጂታል ባንኪንግ",
+          "description": "በዲጂታል መድረካችን እና በሞባይል ክፍያ መፍትሄዎች ዘመናዊ ባንኪንግን ይለማመዱ።",
+          "link": "ተጨማሪ ይወቁ"
+        }
+      }
+    },
+    "growth_insights": {
+      "title": "የእድገት ግንዛቤዎች",
+      "description": "በኢትዮጵያ ውስጥ ያለንን እድገት እና ተፅእኖ መከታተል።",
+      "chart_label": "የአባልነት እድገት",
+      "chart_y_axis": "አባላት",
+      "chart_x_axis": "የጊዜ ገደብ"
+    },
+    "announcements": {
+      "title": "የቅርብ ጊዜ ማስታወቂያዎች",
+      "items": [
+        {
+          "title": "አዲስ የሞባይል ባንኪንግ መተግበሪያ መጀመር",
+          "date": "2024-01-15",
+          "excerpt": "የቴሌቢር ውህደት ባለው አዲስ የሞባይል መተግበሪያችን እንከን የለሽ ባንኪንግ ይለማመዱ።"
+        },
+        {
+          "title": "የማህበረሰብ ልማት ፕሮግራም",
+          "date": "2024-01-10",
+          "excerpt": "ለአካባቢያዊ ልማት ተነሳሽነቶች እና እድሎች ለመወያየት በየሩብ የሚካሄደውን የማህበረሰብ ስብሰባችንን ይቀላቀሉ።"
+        }
+      ],
+      "view_all": "ሁሉንም ማስታወቂያዎች ይመልከቱ"
+    },
+    "events": {
+      "title": "መጪ ዝግጅቶች",
+      "view_all": "ሁሉንም ዝግጅቶች ይመልከቱ"
+    },
+    "latest_news": {
+      "title": "የቅርብ ጊዜ ዜና",
+      "items": [
+        {
+          "title": "ሶሰር 50,000 አባላት ደረጃ ላይ ደርሷል",
+          "date": "2024-01-12",
+          "author": "የኮሙኒኬሽን ቡድን",
+          "excerpt": "በኢትዮጵያ ውስጥ 50,000 ንቁ አባላትን በመድረስ በአገር አቀፍ ደረጃ ማህበረሰቦችን በማጠናከር እናከብራለን።"
+        },
+        {
+          "title": "የዲጂታል ለውጥ ተነሳሽነት ስኬት",
+          "date": "2024-01-08",
+          "author": "የቴክኖሎጂ ዲፓርትመንት",
+          "excerpt": "የኛ ዲጂታል ባንኪንግ መድረክ ከ100,000 በላይ ግብይቶችን ተቆጣጥሯል፣ የገጠር ባንኪንግን አብዮት አድርጓል።"
+        },
+        {
+          "title": "ከአካባቢያዊ የገበሬዎች ህብረት ሥራ ጋር ሽርክና",
+          "date": "2024-01-05",
+          "author": "የሽርክና ቡድን",
+          "excerpt": "ከክልላዊ የገበሬዎች ህብረት ሥራ ጋር በመተባበር አዲስ የግብርና ብድር ምርቶች ተጀምረዋል።"
+        }
+      ],
+      "view_all": "ሁሉንም ዜናዎች ይመልከቱ"
+    },
+    "cta": {
+      "title": "የፋይናንስ ጉዞዎን ለመጀመር ዝግጁ ነዎት?",
+      "description": "ለፋይናንስ ፍላጎቶቻቸው ሶሰርን የሚያምኑ በሺዎች የሚቆጠሩ ረክተው ያሉ አባላትን ይቀላቀሉ።",
+      "get_started": "አሁን ይጀምሩ"
+    }
+  },
+
+  "navbar": {
+    "logo": "ሶሰር",
+    "home": "ቤት",
+    "about_us": "ስለ እኛ",
+    "about": {
+      "team": "ቡድን",
+      "mission_vision": "ተልዕኮ እና ራዕይ",
+      "partners": "አጋሮች"
+    },
+    "services": "አገልግሎቶች",
+    "services_dropdown": {
+      "savings": "ቁጠባ",
+      "loans": "ብድር",
+      "insurance": "ኢንሹራንስ",
+      "digital_banking": "ዲጂታል ባንኪንግ"
+    },
+    "news": "ዜና",
+    "news_dropdown": {
+      "announcements": "ማስታወቂያዎች",
+      "events": "ዝግጅቶች",
+      "vacancies": "ክፍት ቦታዎች"
+    },
+    "testimonials": "ምስክርነቶች",
+    "testimonials_dropdown": {
+      "documents": "ሰነዶች",
+      "success_stories": "የስኬት ታሪኮች"
+    },
+    "multimedia": "ማልቲሚዲያ",
+    "multimedia_dropdown": {
+      "gallery": "ጋለሪ",
+      "videos": "ቪዲዮዎች"
+    },
+    "contact": "እውቂያ",
+    "contact_dropdown": {
+      "faq": "ተደጋጋሚ ጥያቄዎች",
+      "offices": "ቢሮዎች"
+    },
+    "payment": "ክፍያ",
+    "get_started": "ጀምር",
+    "login": "ግባ"
+  },
+  "footer": {
+    "description": "በኢትዮጵያ ውስጥ ማህበረሰቦችን በፈጠራ የፋይናንስ አገልግሎቶች ማብቃት። ለቁጠባ፣ ብድር፣ ኢንሹራንስ እና ዲጂታል ባንኪንግ የታመነ አጋርዎ።",
+    "contact": {
+      "address": "ዳንግላ፣ አማራ፣ ኢትዮጵያ",
+      "phone": "+251-11-XXX-XXXX",
+      "email": "info@sosser.coop",
+      "website": "www.sosser.coop"
+    },
+    "links": {
+      "about": {
+        "title": "ስለ",
+        "items": [
+          { "name": "የኛ ቡድን", "path": "/about/team" },
+          { "name": "ተልዕኮ እና ራዕይ", "path": "/about/mission" },
+          { "name": "አጋሮች", "path": "/about/partners" }
+        ]
+      },
+      "services": {
+        "title": "አገልግሎቶች",
+        "items": [
+          { "name": "ቁጠባ", "path": "/services/savings" },
+          { "name": "ብድር", "path": "/services/loans" },
+          { "name": "ኢንሹራንስ", "path": "/services/insurance" },
+          { "name": "ዲጂታል ባንኪንግ", "path": "/services/digital" }
+        ]
+      },
+      "resources": {
+        "title": "መርጃዎች",
+        "items": [
+          { "name": "ሰነዶች", "path": "/testimonials/documents" },
+          { "name": "የስኬት ታሪኮች", "path": "/testimonials/success" },
+          { "name": "ጋለሪ", "path": "/media/gallery" }
+        ]
+      },
+      "contact": {
+        "title": "እውቂያ",
+        "items": [
+          { "name": "ቢሮዎች", "path": "/contact/offices" },
+          { "name": "ክፍያ", "path": "/payment" },
+          { "name": "ጀምር", "path": "/get-started" }
+        ]
+      }
+    },
+    "bottom": {
+      "copyright": "© {{year}} ሶሰር የፋይናንስ ህብረት ሥራ። ሁሉም መብቶች የተጠበቁ ናቸው።",
+      "privacy": "የግላዊነት መመሪያ",
+      "terms": "የአገልግሎት ውል",
+      "support": "ድጋፍ"
+    }
+  }
+}

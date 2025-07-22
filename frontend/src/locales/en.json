@@ -1,0 +1,230 @@
+{
+  "navbar": {
+    "logo": "Soser",
+    "home": "Home",
+    "about_us": "About Us",
+    "about": {
+      "team": "Team",
+      "mission_vision": "Mission & Vision",
+      "partners": "Partners"
+    },
+    "services": "Services",
+    "services_dropdown": {
+      "savings": "Savings",
+      "loans": "Loans",
+      "insurance": "Insurance",
+      "digital_banking": "Digital Banking"
+    },
+    "news": "News",
+    "news_dropdown": {
+      "announcements": "Announcements",
+      "events": "Events",
+      "vacancies": "Vacancies"
+    },
+    "testimonials": "Testimonials",
+    "testimonials_dropdown": {
+      "documents": "Documents",
+      "success_stories": "Success Stories"
+    },
+    "multimedia": "Multimedia",
+    "multimedia_dropdown": {
+      "gallery": "Gallery",
+      "videos": "Videos"
+    },
+    "contact": "Contact",
+    "contact_dropdown": {
+      "faq": "FAQ",
+      "offices": "Offices"
+    },
+    "payment": "Payment",
+    "get_started": "Get Started",
+    "login": "Login"
+  },
+  "home": {
+    "hero": {
+      "title_part1": "Empowering Members,",
+      "title_typed": "Grow with Soser",
+      "description": "Welcome to Soser Saving & CreditCooperative Union LTD  Your trusted financial partner for savings, loans, insurance, and digital banking solutions.",
+      "get_started": "Get Started Today",
+      "learn_more": "Learn More"
+    },
+    "about": {
+      "title": "About SOSER",
+      "description": "SOSER is a membership-focused financial cooperative offering innovative savings, loan, and insurance services tailored for local development. We're committed to digital transformation and inclusive banking, empowering members across Amhara Region  to achieve financial prosperity and resilience.",
+      "learn_more": "Learn More About Us"
+    },
+    "services": {
+      "title": "Our Services",
+      "description": "Comprehensive financial solutions designed to meet your personal and business needs.",
+      "items": {
+        "savings": {
+          "title": "Savings",
+          "description": "Secure your future with our flexible savings accounts offering competitive interest rates.",
+          "link": "Learn More"
+        },
+        "loans": {
+          "title": "Loans",
+          "description": "Access affordable loans for personal, business, and agricultural needs with flexible terms.",
+          "link": "Learn More"
+        },
+        "insurance": {
+          "title": "Insurance",
+          "description": "Protect yourself and your assets with comprehensive insurance coverage options.",
+          "link": "Learn More"
+        },
+        "digital_banking": {
+          "title": "Digital Banking",
+          "description": "Experience modern banking with our digital platform and mobile payment solutions.",
+          "link": "Learn More"
+        }
+      }
+    },
+    "growth_insights": {
+      "title": "Growth Insights",
+      "description": "Tracking our progress and impact across Ethiopia.",
+      "chart_label": "Membership Growth",
+      "chart_y_axis": "Members",
+      "chart_x_axis": "Time Period"
+    },
+    "announcements": {
+      "title": "Latest Announcements",
+      "items": [
+        {
+          "title": "New Mobile Banking App Launch",
+          "date": "2024-01-15",
+          "excerpt": "Experience seamless banking with our new mobile application featuring TeleBirr integration."
+        },
+        {
+          "title": "Community Development Program",
+          "date": "2024-01-10",
+          "excerpt": "Join our quarterly community meeting to discuss local development initiatives and opportunities."
+        }
+      ],
+      "view_all": "View All Announcements"
+    },
+    "events": {
+      "title": "Upcoming Events",
+      "view_all": "View All Events"
+    },
+    "latest_news": {
+      "title": "Latest News",
+      "items": [
+        {
+          "title": "soser Achieves 50,000 Member Milestone",
+          "date": "2024-01-12",
+          "author": "Communications Team",
+          "excerpt": "We celebrate reaching 50,000 active members across Ethiopia, strengthening communities nationwide."
+        },
+        {
+          "title": "Digital Transformation Initiative Success",
+          "date": "2024-01-08",
+          "author": "Technology Department",
+          "excerpt": "Our digital banking platform has processed over 100,000 transactions, revolutionizing rural banking."
+        },
+        {
+          "title": "Partnership with Local Farmers Cooperative",
+          "date": "2024-01-05",
+          "author": "Partnership Team",
+          "excerpt": "New agricultural loan products launched in partnership with regional farming cooperatives."
+        }
+      ],
+      "view_all": "View All News"
+    },
+    "cta": {
+      "title": "Ready to Start Your Financial Journey?",
+      "description": "Join thousands of satisfied members who trust soser for their financial needs.",
+      "get_started": "Get Started Now"
+    }
+  },
+  "navbar": {
+    "logo": "Soser",
+    "home": "Home",
+    "about_us": "About Us",
+    "about": {
+      "team": "Team",
+      "mission_vision": "Mission & Vision",
+      "partners": "Partners"
+    },
+    "services": "Services",
+    "services_dropdown": {
+      "savings": "Savings",
+      "loans": "Loans",
+      "insurance": "Insurance",
+      "digital_banking": "Digital Banking"
+    },
+    "news": "News",
+    "news_dropdown": {
+      "announcements": "Announcements",
+      "events": "Events",
+      "vacancies": "Vacancies"
+    },
+    "testimonials": "Testimonials",
+    "testimonials_dropdown": {
+      "documents": "Documents",
+      "success_stories": "Success Stories"
+    },
+    "multimedia": "Multimedia",
+    "multimedia_dropdown": {
+      "gallery": "Gallery",
+      "videos": "Videos"
+    },
+    "contact": "Contact",
+    "contact_dropdown": {
+      "faq": "FAQ",
+      "offices": "Offices"
+    },
+    "payment": "Payment",
+    "get_started": "Get Started",
+    "login": "Login"
+  },
+  "footer": {
+    "description": "Empowering members across Ethiopia through innovative financial services. Your trusted partner for savings, loans, insurance, and digital banking.",
+    "contact": {
+      "address": "Dangila, Amhara, Ethiopia",
+      "phone": "+251-11-XXX-XXXX",
+      "email": "info@soser.coop",
+      "website": "www.soser.coop"
+    },
+    "links": {
+      "about": {
+        "title": "About",
+        "items": [
+          { "name": "Our Team", "path": "/about/team" },
+          { "name": "Mission & Vision", "path": "/about/mission" },
+          { "name": "Partners", "path": "/about/partners" }
+        ]
+      },
+      "services": {
+        "title": "Services",
+        "items": [
+          { "name": "Savings", "path": "/services/savings" },
+          { "name": "Loans", "path": "/services/loans" },
+          { "name": "Insurance", "path": "/services/insurance" },
+          { "name": "Digital Banking", "path": "/services/digital" }
+        ]
+      },
+      "resources": {
+        "title": "Resources",
+        "items": [
+          { "name": "Documents", "path": "/testimonials/documents" },
+          { "name": "Success Stories", "path": "/testimonials/success" },
+          { "name": "Gallery", "path": "/media/gallery" }
+        ]
+      },
+      "contact": {
+        "title": "Contact",
+        "items": [
+          { "name": "Offices", "path": "/contact/offices" },
+          { "name": "Payment", "path": "/payment" },
+          { "name": "Get Started", "path": "/get-started" }
+        ]
+      }
+    },
+    "bottom": {
+      "copyright": "© {{year}} soser Financial Cooperative. All rights reserved.",
+      "privacy": "Privacy Policy",
+      "terms": "Terms of Service",
+      "support": "Support"
+    }
+  }
+}
