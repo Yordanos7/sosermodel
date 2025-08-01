@@ -44,18 +44,18 @@
     "hero": {
       "title_part1": "Empowering Members,",
       "title_typed": "Grow with Soser",
-      "description": "Welcome to Soser Saving & CreditCooperative Union LTD  Your trusted financial partner for savings, loans, insurance, and digital banking solutions.",
+      "description": "Welcome to Soser Saving & Credit Cooperative Union LTD. Trusted financial partner for savings, loans, insurance, and digital banking solutions.",
       "get_started": "Get Started Today",
       "learn_more": "Learn More"
     },
     "about": {
       "title": "About SOSER",
-      "description": "SOSER is a membership-focused financial cooperative offering innovative savings, loan, and insurance services tailored for local development. We're committed to digital transformation and inclusive banking, empowering members across Amhara Region  to achieve financial prosperity and resilience.",
+      "description": "Soser Saving & Credit Cooperative Union LTD is a membership-based financial cooperative dedicated to providing innovative savings, loan, and insurance services for local development. We are committed to digital transformation and inclusive banking, empowering our members across the Amhara Region , Awi zone to achieve financial prosperity and resilience. The name Soser is inspired by Mount Soser, a prominent local landmark located at the border between Dangila and Fagita Lekoma woredas. Established on March 24, 2008, and certified by the ANRS Cooperative Agency under registration code 02/1729 on June 19, 2008, the union was founded by 23 primary cooperative societies with an initial paid-up capital of 666,000 ETB and a total membership of 28,194 individuals—23,775 male and 4,419 female members.",
       "learn_more": "Learn More About Us"
     },
     "services": {
       "title": "Our Services",
-      "description": "Comprehensive financial solutions designed to meet your personal and business needs.",
+      "description": "Comprehensive financial solutions designed to meet your business needs.",
       "items": {
         "savings": {
           "title": "Savings",
@@ -88,18 +88,6 @@
     },
     "announcements": {
       "title": "Latest Announcements",
-      "items": [
-        {
-          "title": "New Mobile Banking App Launch",
-          "date": "2024-01-15",
-          "excerpt": "Experience seamless banking with our new mobile application featuring TeleBirr integration."
-        },
-        {
-          "title": "Community Development Program",
-          "date": "2024-01-10",
-          "excerpt": "Join our quarterly community meeting to discuss local development initiatives and opportunities."
-        }
-      ],
       "view_all": "View All Announcements"
     },
     "events": {
@@ -108,82 +96,40 @@
     },
     "latest_news": {
       "title": "Latest News",
-      "items": [
-        {
-          "title": "soser Achieves 50,000 Member Milestone",
-          "date": "2024-01-12",
-          "author": "Communications Team",
-          "excerpt": "We celebrate reaching 50,000 active members across Ethiopia, strengthening communities nationwide."
-        },
-        {
-          "title": "Digital Transformation Initiative Success",
-          "date": "2024-01-08",
-          "author": "Technology Department",
-          "excerpt": "Our digital banking platform has processed over 100,000 transactions, revolutionizing rural banking."
-        },
-        {
-          "title": "Partnership with Local Farmers Cooperative",
-          "date": "2024-01-05",
-          "author": "Partnership Team",
-          "excerpt": "New agricultural loan products launched in partnership with regional farming cooperatives."
-        }
-      ],
       "view_all": "View All News"
     },
     "cta": {
       "title": "Ready to Start Your Financial Journey?",
-      "description": "Join thousands of satisfied members who trust soser for their financial needs.",
+      "description": "Saving is a symbol of progress. Save for growth, borrow with purpose, and repay on time !!!",
       "get_started": "Get Started Now"
+    },
+    "loan_disbursement": {
+      "title": "Loan Disbursement",
+      "total_loan": "Total Loan",
+      "short_term_loan": "Short Term Loan",
+      "medium_term_loan": "Medium Term Loan"
+    },
+    "saving_trend": {
+      "title": "Saving Trend",
+      "total_saving": "Total Saving",
+      "regular_saving": "Regular",
+      "voluntary_saving": "Voluntary",
+      "contractual_saving": "Contractual",
+      "current_saving": "Current"
+    },
+    "headquarters": {
+      "title": "Our Headquarters",
+      "description": "Our headquarters, located in Dangla town, serves as the central hub for Soser Saving & Credit Cooperative Union LTD's operations. This facility supports our administrative functions and member services, ensuring we deliver accessible and reliable financial solutions to our zone. It reflects our commitment to fostering financial inclusion and empowering our community through straightforward and effective cooperative services.",
+      "link": "Visit Our Locations"
     }
   },
-  "navbar": {
-    "logo": "Soser",
-    "home": "Home",
-    "about_us": "About Us",
-    "about": {
-      "team": "Team",
-      "mission_vision": "Mission & Vision",
-      "partners": "Partners"
-    },
-    "services": "Services",
-    "services_dropdown": {
-      "savings": "Savings",
-      "loans": "Loans",
-      "insurance": "Insurance",
-      "digital_banking": "Digital Banking"
-    },
-    "news": "News",
-    "news_dropdown": {
-      "announcements": "Announcements",
-      "events": "Events",
-      "vacancies": "Vacancies"
-    },
-    "testimonials": "Testimonials",
-    "testimonials_dropdown": {
-      "documents": "Documents",
-      "success_stories": "Success Stories"
-    },
-    "multimedia": "Multimedia",
-    "multimedia_dropdown": {
-      "gallery": "Gallery",
-      "videos": "Videos"
-    },
-    "contact": "Contact",
-    "contact_dropdown": {
-      "faq": "FAQ",
-      "offices": "Offices"
-    },
-    "payment": "Payment",
-    "get_started": "Get Started",
-    "login": "Login"
-  },
   "footer": {
-    "description": "Empowering members across Ethiopia through innovative financial services. Your trusted partner for savings, loans, insurance, and digital banking.",
+    "description": "Empowering members across Amahra Region, Awi zone through innovative financial services. Your trusted partner for savings, loans, insurance, and digital banking.",
     "contact": {
       "address": "Dangila, Amhara, Ethiopia",
       "phone": "+251-11-XXX-XXXX",
-      "email": "info@soser.coop",
-      "website": "www.soser.coop"
+      "email": "soserunion@gmail.com",
+      "website": "www.soserunion.com"
     },
     "links": {
       "about": {
@@ -221,10 +167,976 @@
       }
     },
     "bottom": {
-      "copyright": "© {{year}} soser Financial Cooperative. All rights reserved.",
+      "copyright": "© {{year}} soser. All rights reserved.",
       "privacy": "Privacy Policy",
       "terms": "Terms of Service",
       "support": "Support"
+    }
+  },
+  "team": {
+    "header": {
+      "title": "Our Organizational Structure",
+      "description": "Meet the dedicated team that drives Sosser's mission to empower memebers through innovative financial services."
+    },
+    "navigation": {
+      "executive_leadership": "Executive Leadership",
+      "general_assembly": "General Assembly",
+      "control_committee": "Control Committee",
+      "division_leadership": "Division Leadership",
+      "branch_network": "Branch Network"
+    },
+    "general_assembly": {
+      "title": "General Assembly",
+      "team_title": "General Assembly Team",
+      "team_position": "Assembly Members"
+    },
+    "control_committee": {
+      "title": "Control Committee"
+    },
+    "executive_leadership": {
+      "title": "Executive Leadership"
+    },
+    "division_leadership": {
+      "title": "Division Leadership"
+    },
+    "branch_network": {
+      "title": "Branch Network",
+      "branch_manager_label": "Branch Manager: Mr.",
+      "total_staff_label": "Total staff across all branches: {{count}}",
+      "all_staff_button": "All Staff"
+    },
+    "back_to_top": "Back to Top"
+  },
+
+  "mission": {
+    "hero": {
+      "title": "Mission & Vision",
+      "description": "Driving financial inclusion and community prosperity across Ethiopia through innovative cooperative banking."
+    },
+    "mission_section": {
+      "title": "Our Mission",
+      "description": "Addressing the social and economic issues faced by members and their communities by offering financial products and services that members can manage independently and that are not overly complicated to access."
+    },
+    "vision_section": {
+      "title": "Our Vision",
+      "description": "Becoming a leading cooperative bank that is continuously accessible, preferred, and popular."
+    },
+    "core_values": {
+      "title": "Our Core Values",
+      "description": "These fundamental principles guide our actions and decisions as we work towards our mission.",
+      "items": [
+        {
+          "title": "Community First",
+          "description": "We prioritize the needs and wellbeing of our communities in every decision we make."
+        },
+        {
+          "title": "Trust & Integrity",
+          "description": "We maintain the highest standards of transparency and ethical conduct in all our operations."
+        },
+        {
+          "title": "Inclusive Growth",
+          "description": "We believe in creating opportunities for everyone, regardless of their background or circumstances."
+        },
+        {
+          "title": "Innovation",
+          "description": "We embrace technology and innovation to deliver better financial services to our members."
+        }
+      ]
+    },
+    "strategic_goals": {
+      "title": "Strategic Goals 2025 - 2030GC",
+      "description": "Our roadmap to achieving greater impact and serving more communities across Ethiopia.",
+      "items": [
+        {
+          "title": "Empowering the union to be outshined and mandated in the affairs of its members in many Aspects.",
+          "description": "",
+          "progress_label": "Progress"
+        },
+        {
+          "title": "Assessing the financial industry & utilizing best opportunities in asset formation",
+          "description": "",
+          "progress_label": "Progress"
+        },
+        {
+          "title": "Building the capacity & in turn capacitating members, Building agricultural business projects in rural areas like oilseed crushers, tractors finance schemes for plough, selected animals breeding schemes, poultry, grain mills, cultured fishing, bee management, warehouse building, irrigation schemes etc.",
+          "description": "",
+          "progress_label": "Progress"
+        },
+        {
+          "title": "Creating, building and managing competitive environments among different members to enhance their service capacities",
+          "description": "",
+          "progress_label": "Progress"
+        },
+        {
+          "title": "Building luxuries transportation/communication system between members and the union",
+          "description": "",
+          "progress_label": "Progress"
+        },
+        {
+          "title": "Enabling members to be manned with competent and diligent employees",
+          "description": "",
+          "progress_label": "Progress"
+        }
+      ]
+    },
+    "cta": {
+      "authenticated": {
+        "title": "Give us your message or comment",
+        "description": "Your feedback is important to us. Let us know how we can improve our services.",
+        "button": "Contact Us"
+      },
+      "unauthenticated": {
+        "title": "Join Our Mission",
+        "description": "Be part of the movement that's transforming financial services in Ethiopia.",
+        "button": "Become a Member"
+      }
+    }
+  },
+
+  "partners": {
+    "header": {
+      "title": "Our Strategic Partners",
+      "description": "We collaborate with leading organizations to expand our reach and enhance our services for members."
+    },
+    "categories": {
+      "Union": "Union",
+      "NGOs": "NGOs"
+    },
+    "partnership_benefits": {
+      "title": "Partnership Benefits",
+      "items": [
+        {
+          "title": "Country Reach",
+          "description": "Access to country markets and services"
+        },
+        {
+          "title": "Innovation",
+          "description": "Latest technology and financial solutions"
+        },
+        {
+          "title": "Expertise",
+          "description": "Shared knowledge and best practices"
+        },
+        {
+          "title": "Growth",
+          "description": "Sustainable development and expansion"
+        }
+      ]
+    }
+  },
+
+  "savings": {
+    "hero": {
+      "title": "Savings Accounts",
+      "description": "Secure your financial future with our comprehensive savings solutions. Earn competitive interest while keeping your money safe and accessible."
+    },
+    "account_types": {
+      "title": "Choose Your Savings Account",
+      "description": "Find the perfect savings account that matches your financial goals and lifestyle."
+    },
+    "savings_accounts": [
+      {
+        "name": "Compulsory Saving",
+        "features": [
+          "A mandatory saving type",
+          "Free online banking",
+          "Which cannot be withdrawn without due purpose and members' decision"
+        ]
+      },
+      {
+        "name": "Voluntary Saving",
+        "features": [
+          "Members can easily save and withdraw like most banks' savings today"
+        ]
+      },
+      {
+        "name": "Contractual Saving",
+        "features": [
+          "Contractual saving based on agreements between savers and the union with certain terms and conditions"
+        ]
+      },
+      {
+        "name": "Current Account",
+        "features": [
+          "Non-interest-bearing current account, very easy to withdraw"
+        ]
+      },
+      {
+        "name": "Children Saving",
+        "features": [
+          "Children Saving, a saving type with similar but less restrictive conditions compared to contractual savings"
+        ]
+      },
+      {
+        "name": "Special Savings",
+        "features": [
+          "Financial literacy",
+          "Low minimum balance",
+          "Educational resources",
+          "Parental oversight options"
+        ]
+      }
+    ],
+    "benefits": {
+      "title": "Why Choose Sosser Savings?",
+      "items": [
+        {
+          "title": "Insurance Products",
+          "description": "Provides insurance products to debtors and to members of the cooperative."
+        },
+        {
+          "title": "Variety of Savings Options",
+          "description": "Providing a secure and rewarding option for members who commit to long-term savings with restricted withdrawals."
+        },
+        {
+          "title": "Diverse Service Offerings",
+          "description": "Soser provides a range of financial services tailored to cooperative societies, including savings, credit, insurance, training, and technical support. This comprehensive approach ensures members have access to multiple financial tools to meet their needs."
+        }
+      ]
+    },
+    "cta": {
+      "title": "Start Saving Today",
+      "description": "Open your savings account online in minutes and start earning competitive returns on your money.",
+      "button": "Open Savings Account"
+    },
+    "account_button": "Open Account",
+    "benefits_image_alt": "Benefits of Sosser Savings"
+  },
+
+  "loans": {
+    "header": {
+      "title": "Loan Services"
+    },
+    "duration_loans": {
+      "title": "Loans by Duration",
+      "items": [
+        {
+          "name": "Short Term Loan",
+          "features": [
+            "Up to 1 year duration",
+            "Quick approval",
+            "Flexible repayment options"
+          ]
+        },
+        {
+          "name": "Middle Term Loan",
+          "features": [
+            "2-5 years duration",
+            "Medium-term financing",
+            "Business growth support"
+          ]
+        },
+        {
+          "name": "Long Term Loan",
+          "features": [
+            "6-10 years duration",
+            "Long-term investment",
+            "Large project financing"
+          ]
+        }
+      ]
+    },
+    "purpose_loans": {
+      "title": "Loans by Purpose",
+      "items": [
+        {
+          "name": "Manufacturing Loan",
+          "description": "Loan disbursed for manufacturing purposes.",
+          "features": [
+            "Equipment financing",
+            "Factory setup",
+            "Raw material purchase",
+            "Production expansion"
+          ]
+        },
+        {
+          "name": "Agricultural Loan",
+          "description": "Loan for agricultural development and farming activities.",
+          "features": [
+            "Farm equipment",
+            "Seed and fertilizer",
+            "Irrigation systems",
+            "Livestock purchase"
+          ]
+        },
+        {
+          "name": "Construction Loan",
+          "description": "Financing for construction projects and real estate development.",
+          "features": [
+            "Building materials",
+            "Labor costs",
+            "Project financing",
+            "Property development"
+          ]
+        },
+        {
+          "name": "Service Loan",
+          "description": "Loan for service-oriented businesses and enterprises.",
+          "features": [
+            "Business expansion",
+            "Service equipment",
+            "Working capital",
+            "Technology upgrade"
+          ]
+        }
+      ]
+    },
+    "application_process": {
+      "title": "Application Process",
+      "items": [
+        {
+          "title": "Application",
+          "description": "Submit your loan application with required documents"
+        },
+        {
+          "title": "Review",
+          "description": "Our team reviews your application and credit history"
+        },
+        {
+          "title": "Approval",
+          "description": "Receive approval notification and loan terms"
+        },
+        {
+          "title": "Disbursement",
+          "description": "Funds are transferred to your account"
+        }
+      ]
+    },
+    "requirements": {
+      "title": "Loan Requirements",
+      "items": [
+        "Valid Ethiopian ID or passport",
+        "Proof of income or business registration",
+        "Bank statements (last 6 months)",
+        "Collateral documentation (if applicable)",
+        "Guarantor information",
+        "Completed loan application form"
+      ]
+    },
+    "interest_rate": {
+      "button": "Calculate Your Loan"
+    },
+    "apply_button": "Apply Now",
+    "header_image_alt": "Loan Services Background"
+  },
+
+  "insurance": {
+    "header": {
+      "title": "Insurance Services",
+      "subtitle": "Financial protection solutions designed for families and borrowers"
+    },
+    "definition": {
+      "title": "What is Insurance?",
+      "description": "Insurance is an agreement or a contract between an individual or business with an insurance company to help provide financial protection and mitigate the risks associated with certain situations or events."
+    },
+    "services": {
+      "title": "Insurance Services",
+      "items": [
+        {
+          "name": "Life Loan Insurance",
+          "description": "Protection that covers the remaining loan repayment in case of death of either the debtor or the debtor's spouse, with a funeral service benefit.",
+          "benefits": ["Financial Protection", "Funeral Service Benefit"]
+        },
+        {
+          "name": "Saving Led Life Insurance",
+          "description": "Protection that provides double the balance of savings in case of death of either the saver or the saver's spouse, with a funeral service benefit",
+          "benefits": ["Enhanced Payout", "Funeral Service Benefit"]
+        }
+      ]
+    },
+    "features": {
+      "title": "Why Choose Our Insurance?",
+      "items": [
+        {
+          "title": "Family Protection",
+          "description": "Secure your family's financial future"
+        },
+        {
+          "title": "Peace of Mind",
+          "description": "Know your loved ones are protected"
+        },
+        {
+          "title": "Simple Process",
+          "description": "Easy application and claim procedures"
+        }
+      ]
+    },
+    "claim_process": {
+      "title": "Claims Process",
+      "items": [
+        {
+          "title": "Notification",
+          "description": "Inform us immediately about the claim event"
+        },
+        {
+          "title": "Documentation",
+          "description": "Submit required documents (death certificate, policy copy)"
+        },
+        {
+          "title": "Verification",
+          "description": "Our team verifies the claim details"
+        },
+        {
+          "title": "Benefit Payment",
+          "description": "Receive the insurance benefit and funeral service payment"
+        }
+      ]
+    },
+    "cta": {
+      "title": "Need Help Choosing?",
+      "description": "Our insurance advisors are ready to help you select the right coverage.",
+      "button": "Get our office"
+    },
+    "apply_button": "Apply Now",
+    "benefits_label": "Key Benefits",
+    "coverage_label": "Coverage Includes",
+    "header_image_alt": "Insurance Services Background"
+  },
+  "digital": {
+    "header": {
+      "title": "Digital Banking Services",
+      "subtitle": "Experience the future of banking with our comprehensive digital solutions designed for modern Ethiopian lifestyles."
+    },
+    "services": {
+      "title": "Digital Services",
+      "items": [
+        {
+          "name": "Mobile Banking",
+          "description": "Complete banking services at your fingertips with our mobile app.",
+          "features": [
+            "Account balance inquiry",
+            "Money transfer",
+            "Bill payments",
+            "Transaction history",
+            "ATM locator"
+          ]
+        },
+        {
+          "name": "Digital Payments",
+          "description": "Secure and instant payment solutions for all your needs.",
+          "features": [
+            "QR code payments",
+            "Contactless payments",
+            "Online shopping",
+            "Utility bill payments",
+            "Merchant payments"
+          ]
+        },
+        {
+          "name": "TeleBirr Integration",
+          "description": "Seamless integration with Ethiopia's leading mobile money platform.",
+          "features": [
+            "Instant transfers",
+            "Cash in/out",
+            "Airtime purchase",
+            "International remittances",
+            "Merchant payments"
+          ]
+        },
+        {
+          "name": "Online Banking",
+          "description": "Full-featured web banking platform for comprehensive account management.",
+          "features": [
+            "Account management",
+            "Loan applications",
+            "Investment tracking",
+            "Statement downloads",
+            "Security settings"
+          ]
+        }
+      ]
+    },
+    "benefits": {
+      "title": "Why Choose Digital Banking?",
+      "items": [
+        {
+          "title": "24/7 Availability",
+          "description": "Access your account and perform transactions anytime, anywhere."
+        },
+        {
+          "title": "Bank-Level Security",
+          "description": "Advanced encryption and multi-factor authentication protect your data."
+        },
+        {
+          "title": "Lower Fees",
+          "description": "Reduced transaction costs compared to traditional banking methods."
+        },
+        {
+          "title": "Easy Payments",
+          "description": "Quick QR code scanning for instant payments and transfers."
+        }
+      ]
+    },
+    "payment_methods": {
+      "title": "Supported Payment Methods",
+      "items": [
+        {
+          "name": "TeleBirr",
+          "description": "Ethiopia's most popular mobile money service",
+          "features": [
+            "Instant transfers",
+            "Bill payments",
+            "Merchant payments",
+            "International remittances"
+          ]
+        },
+        {
+          "name": "Awash Bank Mobile",
+          "description": "Direct integration with Awash Bank services",
+          "features": [
+            "Account linking",
+            "Fund transfers",
+            "Balance inquiries",
+            "Transaction history"
+          ]
+        },
+        {
+          "name": "Bank of Abyssinia",
+          "description": "Seamless connectivity with BOA digital services",
+          "features": [
+            "Cross-bank transfers",
+            "Payment processing",
+            "Account management",
+            "Mobile banking"
+          ]
+        }
+      ]
+    },
+    "steps": {
+      "title": "Getting Started is Easy",
+      "items": [
+        {
+          "title": "Register Account",
+          "description": "Sign up with your phone number and verify identity"
+        },
+        {
+          "title": "Link Accounts",
+          "description": "Connect your existing bank accounts and payment methods"
+        },
+        {
+          "title": "Start Banking",
+          "description": "Enjoy seamless digital banking experience"
+        }
+      ]
+    },
+    "get_started_button": "Get Started",
+    "header_image_alt": "Digital Banking Services Background"
+  },
+  "staff": {
+    "dedicated_staff": {
+      "title": "Dedicated Staff",
+      "description": "Meet the passionate individuals who are committed to your financial success."
+    },
+    "team_members": {
+      "title": "Team Members",
+      "description": "The talented and diverse team that makes Soser a leading financial institution."
+    }
+  },
+  "events": {
+    "header": {
+      "title": "Upcoming Events",
+      "description": "Join us for educational workshops, training sessions, and community events designed to empower and inform our members."
+    },
+    "filters": {
+      "all_events": "All Events"
+    },
+    "featured_events": {
+      "title": "Featured Events",
+      "spots_left": "{{count}} spots left",
+      "registered": "{{registered}}/{{capacity}} registered"
+    },
+    "all_events": {
+      "title": "All Events",
+      "featured_label": "Featured"
+    },
+    "cta": {
+      "title": "Don't Miss Out!",
+      "description": "Subscribe to our newsletter to stay updated on upcoming events and workshops.",
+      "email_placeholder": "Enter your email",
+      "subscribe_button": "Subscribe"
+    }
+  },
+  "announcements": {
+    "hero": {
+      "title": "Announcements",
+      "description": "Stay informed with the latest updates, policy changes, and important notices from Sosser."
+    },
+    "categories": {
+      "title": "Categories",
+      "all": "All Announcements"
+    },
+    "main": {
+      "title": "{{category}}",
+      "count": "{{count}} announcement{{s}} found",
+      "priority": "{{priority}} PRIORITY",
+      "read_more": "Read More",
+      "no_announcements": {
+        "title": "No announcements found",
+        "description": "Try selecting a different category or check back later."
+      }
+    }
+  },
+  "vacancies": {
+    "header": {
+      "title": "Career Opportunities",
+      "description": "Join our team and be part of Ethiopia's leading financial cooperative. We offer competitive salaries, growth opportunities, and a chance to make a real impact."
+    },
+    "job_listings": {
+      "loading": "Loading vacancies...",
+      "urgent": "Urgent",
+      "department": "Department",
+      "location": "Location",
+      "type": "Type",
+      "salary": "Salary",
+      "salary_not_disclosed": "Not Disclosed",
+      "requirements": "Requirements:",
+      "responsibilities": "Key Responsibilities:",
+      "more_requirements": "+{{count}} more requirements",
+      "more_responsibilities": "+{{count}} more responsibilities",
+      "posted": "Posted: {{date}}",
+      "deadline": "Deadline: {{date}}",
+      "days_left": "{{count}} days left"
+    },
+    "application_tips": {
+      "title": "Application Tips",
+      "tip1": {
+        "title": "Prepare Your Documents",
+        "description": "Have your CV, certificates, and references ready before applying."
+      },
+      "tip2": {
+        "title": "Tailor Your Application",
+        "description": "Customize your CV and cover letter for each specific position."
+      },
+      "tip3": {
+        "title": "Apply Early",
+        "description": "Don't wait until the deadline. Early applications get more attention."
+      }
+    }
+  },
+  "documents": {
+    "header": {
+      "title": "Documents & Reports",
+      "description": "Access our comprehensive collection of reports, studies, and documentation showcasing Sosser's impact and transparency in serving Ethiopian communities."
+    },
+    "statistics": {
+      "total_documents": "Total Documents",
+      "total_downloads": "Total Downloads",
+      "categories": "Categories",
+      "latest_year": "Latest Year"
+    },
+    "categories": {
+      "all_documents": "All Documents",
+      "financial_reports": "Financial Reports",
+      "impact_studies": "Impact Studies",
+      "case_studies": "Case Studies",
+      "esg_reports": "ESG Reports"
+    },
+    "featured_documents": {
+      "title": "Featured Documents"
+    },
+    "all_documents": {
+      "no_documents": "No documents found in this category"
+    },
+    "newsletter": {
+      "title": "Stay Updated",
+      "description": "Soser is committed to giving you the simplest way to access all the information you need. This is a place where you can find all the documents you need to know about Soser."
+    },
+    "actions": {
+      "download": "Download",
+      "preview": "Preview",
+      "downloading": "Downloading... {{progress}}%"
+    }
+  },
+  "success": {
+    "header": {
+      "title": "Success Stories",
+      "description": "Discover how Sosser's financial services have transformed lives and communities across Ethiopia. These inspiring stories showcase the real impact of accessible financial services."
+    },
+    "statistics": {
+      "success_stories": "Success Stories",
+      "lives_impacted": "Lives Impacted",
+      "jobs_created": "Jobs Created",
+      "communities_served": "Communities Served"
+    },
+    "categories": {
+      "all_stories": "All Stories",
+      "small_business": "Small Business",
+      "agriculture": "Agriculture",
+      "education": "Education",
+      "housing": "Housing"
+    },
+    "featured_stories": {
+      "title": "Featured Success Stories"
+    },
+    "all_stories": {
+      "title": "All Success Stories"
+    },
+    "fields": {
+      "loan_amount": "Loan Amount",
+      "business_type": "Business Type",
+      "impact_achieved": "Impact Achieved",
+      "success_from": "Success Story from {{year}}",
+      "featured": "Featured",
+      "loan": "Loan"
+    },
+    "cta": {
+      "title": "Share Your Story",
+      "description": "Have a success story with Sosser? Share how our financial services have impacted your life or business and inspire others in your community."
+    }
+  },
+  "gallery": {
+    "header": {
+      "title": "Photo Gallery",
+      "description": "Explore moments that tell the story of Sosser's impact on members. From grand openings to success stories, witness our journey in pictures."
+    },
+    "statistics": {
+      "total_photos": "Total Photos",
+      "categories": "Categories",
+      "featured_photos": "Featured Photos",
+      "latest_year": "Latest Year"
+    },
+    "categories": {
+      "all": "All Photos"
+    },
+    "featured_photos": {
+      "title": "Featured Photos"
+    },
+    "all_photos": {
+      "title": "{{category}} Photos",
+      "all_title": "All Photos",
+      "no_photos": "No photos found in this category"
+    },
+    "modal": {
+      "alt_text": "Photo preview"
+    },
+    "cta": {
+      "title": "Upload Your Photo",
+      "description": "Captured a moment with Sosser? Share your photos to showcase our impact and inspire others in the community."
+    },
+    "status": {
+      "loading": "Loading photos...",
+      "error": "Error fetching photos: {{message}}"
+    }
+  },
+  "videos": {
+    "header": {
+      "title": "የቪዲዮ ቤተ መጻሕፍት",
+      "description": "የሶሰር የፋይናንስ አገልግሎቶችን በተሻለ ለመጠቀም የሚረዱዎትን የትምህርት ይዘቶች፣ የስኬት ታሪኮች እና መማሪያዎች ስብስብ ያስሱ።"
+    },
+    "statistics": {
+      "total_videos": "ጠቅላላ ቪዲዮዎች",
+      "total_views": "ጠቅላላ እይታዎች",
+      "featured_videos": "ተለይተው የቀረቡ ቪዲዮዎች",
+      "categories": "ምድቦች"
+    },
+    "categories": {
+      "all_videos": "ሁሉም ቪዲዮዎች"
+    },
+    "featured_videos": {
+      "title": "ተለይተው የቀረቡ ቪዲዮዎች"
+    },
+    "all_videos": {
+      "title": "{{category}} ቪዲዮዎች",
+      "all_title": "ሁሉም ቪዲዮዎች",
+      "no_videos": "በዚህ ምድብ ውስጥ ምንም ቪዲዮዎች አልተገኙም"
+    },
+    "modal": {
+      "alt_text": "የቪዲዮ ቅድመ እይታ"
+    },
+    "cta": {
+      "title": "ቪዲዮዎን ይስቀሉ",
+      "description": "መጋራት የሚፈልጉት ታሪክ አለዎት? ከሶሰር ጋር ያለዎትን ልምድ ለማሳየት እና በማህበረሰቡ ውስጥ ሌሎችን ለመነሳሳት ቪዲዮዎን ይስቀሉ።"
+    },
+    "status": {
+      "loading": "ቪዲዮዎችን በመጫን ላይ...",
+      "error": "ቪዲዮዎችን በማግኘት ላይ ስህተት፡ {{message}}"
+    }
+  },
+  "offices": {
+    "header": {
+      "title": "Our Offices",
+      "description": "Find a Soser Saving & Credit Cooperative Union LTD office near you."
+    },
+    "statistics": {
+      "total_offices": "Total Offices",
+      "regions_served": "Regions Served",
+      "total_staff": "Total Staff",
+      "years_of_service": "Years of Service"
+    },
+    "main_office": {
+      "title": "Main Office",
+      "address": "Address",
+      "phone": "Phone",
+      "email": "Email",
+      "business_hours": "Business Hours",
+      "manager": "Manager",
+      "established": "Est.",
+      "weekdays": "Mon-Sat",
+      "sunday": "Sunday"
+    },
+    "branches": {
+      "title": "Our Branches"
+    },
+    "map": {
+      "title": "Office Locations Map",
+      "loading": "Loading map...",
+      "error": "Error loading map: {{message}}",
+      "alt_text": "Map showing Soser office locations"
+    },
+    "cta": {
+      "title": "Contact Us",
+      "description": "Have questions or need assistance? Reach out to our team at any of our offices."
+    }
+  },
+  "payment": {
+    "header": {
+      "title": "Payment Methods",
+      "description": "Choose your preferred payment method and follow the step-by-step guide to complete your transaction."
+    },
+    "select_method": {
+      "title": "Select Payment Method"
+    },
+    "payment_steps": {
+      "title": "How to pay with {{method}}",
+      "telebirr": [
+        "Open TeleBirr app on your mobile device",
+        "Select 'Send Money' or 'Transfer'",
+        "Enter the amount you want to pay",
+        "Complete the transaction with your PIN",
+        "Take a screenshot of the confirmation"
+      ],
+      "awash": [
+        "Open Awash Bank Mobile app",
+        "Login with your credentials",
+        "Select 'Transfer' from the menu",
+        "Choose 'To Other Banks'",
+        "Enter Soser account details provided",
+        "Enter amount and confirm transaction",
+        "Save transaction receipt"
+      ],
+      "abyssinia": [
+        "Launch Bank of Abyssinia mobile app",
+        "Navigate to 'Money Transfer'",
+        "Select 'Inter-bank Transfer'",
+        "Enter Sosser cooperative account number",
+        "Input transfer amount",
+        "Authenticate with biometric or PIN",
+        "Download transaction confirmation"
+      ]
+    },
+    "submit_transaction": {
+      "title": "Submit Transaction",
+      "amount_label": "Amount Paid (ETB)",
+      "amount_placeholder": "Enter amount",
+      "transaction_id_label": "Transaction ID (Optional)",
+      "transaction_id_placeholder": "Enter transaction ID",
+      "screenshot_label": "Upload Screenshot",
+      "screenshot_prompt": "Click to upload screenshot",
+      "screenshot_info": "PNG, JPG up to 10MB",
+      "screenshot_confirmation": "✓ {{filename}}",
+      "transaction_link_label": "Transaction Link (Alternative)",
+      "transaction_link_placeholder": "Paste transaction link",
+      "transaction_link_info": "If available, paste the transaction confirmation link",
+      "submit_button": "Submit Payment",
+      "submitting": "Submitting..."
+    },
+    "success": {
+      "title": "Payment Submitted!",
+      "description": "Your payment information has been sent to our admin team for verification. You will receive a confirmation email once processed.",
+      "button": "Submit Another Payment"
+    },
+    "payment_history": {
+      "title": "Your Payment History",
+      "loading": "Loading payment history...",
+      "no_payments": "No payments found.",
+      "table": {
+        "amount": "Amount (ETB)",
+        "status": "Status",
+        "date": "Date",
+        "transaction_id": "Transaction ID",
+        "payment_method": "Payment Method",
+        "transaction_link": "Payment Link"
+      }
+    },
+    "notes": {
+      "title": "Important Notes",
+      "items": [
+        "All payments are processed manually by our admin team",
+        "Please ensure transaction details are accurate before submission",
+        "You will receive email confirmation once payment is verified",
+        "For urgent matters, contact our support team directly",
+        "Keep your transaction receipt until confirmation is received"
+      ]
+    },
+    "errors": {
+      "no_token": "No authentication token found. Please log in.",
+      "fetch_failed": "Failed to fetch payment history",
+      "invalid_user": "Your session is invalid. Please log in again.",
+      "payment_failed": "Payment failed: {{message}}",
+      "login_link": "Log in"
+    }
+  },
+  "getStarted": {
+    "header": {
+      "title": "Get Started",
+      "description": "Join the Sosser community today"
+    },
+    "form": {
+      "name_label": "Full Name",
+      "name_placeholder": "Enter your full name",
+      "email_label": "Email Address",
+      "email_placeholder": "Enter your email",
+      "phone_label": "Phone Number",
+      "phone_placeholder": "Enter your phone number",
+      "address_label": "Address",
+      "address_placeholder": "Enter your address",
+      "password_label": "Password",
+      "password_placeholder": "Create a password",
+      "confirm_password_label": "Confirm Password",
+      "confirm_password_placeholder": "Confirm your password",
+      "role_label": "Account Type",
+      "role_user": "User",
+      "role_admin": "Admin",
+      "submit_button": "Create Account",
+      "submitting": "Creating Account...",
+      "login_prompt": "Already have an account?",
+      "login_link": "Log in"
+    },
+    "errors": {
+      "invalid_email": "Please enter a valid email address",
+      "password_mismatch": "Passwords do not match",
+      "password_length": "Password must be at least 6 characters long",
+      "password_format": "Password must include a number and a special character",
+      "registration_failed": "Registration failed: {{message}}",
+      "unexpected_error": "An unexpected error occurred"
+    },
+    "images": {
+      "logo_alt": "Sosser Logo"
+    }
+  },
+  "login": {
+    "header": {
+      "title": "Welcome Back",
+      "description": "Sign in to your Sosser account"
+    },
+    "form": {
+      "email_label": "Email Address",
+      "email_placeholder": "Enter your email",
+      "password_label": "Password",
+      "password_placeholder": "Enter your password",
+      "submit_button": "Sign In",
+      "submitting": "Signing In..."
+    },
+    "errors": {
+      "login_failed": "Login failed: {{message}}",
+      "unexpected_error": "An unexpected error occurred"
+    },
+    "navigation": {
+      "signup_prompt": "Don't have an account?",
+      "signup_link": "Get Started"
+    },
+    "images": {
+      "logo_alt": "Sosser Logo"
     }
   }
 }

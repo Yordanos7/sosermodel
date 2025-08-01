@@ -12,126 +12,44 @@ import {
   WrenchScrewdriverIcon,
 } from "@heroicons/react/24/outline";
 import { Link } from "react-router-dom";
+import { useTranslation } from "react-i18next";
 
 const Loans = () => {
-  // Loan types based on duration from your image
-  const durationLoans = [
-    {
-      id: 1,
-      name: "Short Term Loan",
-      icon: ClockIcon,
-      features: [
-        "Up to 1 year duration",
-        "Quick approval",
-        "Flexible repayment options",
-      ],
-    },
-    {
-      id: 2,
-      name: "Middle Term Loan",
-      icon: ClockIcon,
-      features: [
-        "1-5 years duration",
-        "Medium-term financing",
-        "Business growth support",
-      ],
-    },
-    {
-      id: 3,
-      name: "Long Term Loan",
-      icon: ClockIcon,
-      features: [
-        "5-10 years duration",
-        "Long-term investment",
-        "Large project financing",
-      ],
-    },
-  ];
+  const { t } = useTranslation();
 
-  // Loan types based on purpose from your image
-  const purposeLoans = [
-    {
-      id: 4,
-      name: "Manufacturing Loan",
-      icon: BuildingOfficeIcon,
-      description: "Loan disbursed for manufacturing purposes.",
-      features: [
-        "Equipment financing",
-        "Factory setup",
-        "Raw material purchase",
-        "Production expansion",
-      ],
-    },
-    {
-      id: 5,
-      name: "Agricultural Loan",
-      icon: TruckIcon,
-      description: "Loan for agricultural development and farming activities.",
-      features: [
-        "Farm equipment",
-        "Seed and fertilizer",
-        "Irrigation systems",
-        "Livestock purchase",
-      ],
-    },
-    {
-      id: 6,
-      name: "Construction Loan",
-      icon: WrenchScrewdriverIcon,
-      description:
-        "Financing for construction projects and real estate development.",
-      features: [
-        "Building materials",
-        "Labor costs",
-        "Project financing",
-        "Property development",
-      ],
-    },
-    {
-      id: 7,
-      name: "Service Loan",
-      icon: BuildingStorefrontIcon,
-      description: "Loan for service-oriented businesses and enterprises.",
-      features: [
-        "Business expansion",
-        "Service equipment",
-        "Working capital",
-        "Technology upgrade",
-      ],
-    },
-  ];
+  const durationLoans = t("loans.duration_loans.items", {
+    returnObjects: true,
+  }).map((loan, index) => ({
+    id: index + 1,
+    name: loan.name,
+    icon: ClockIcon,
+    features: loan.features,
+  }));
 
-  const requirements = [
-    "Valid Ethiopian ID or passport",
-    "Proof of income or business registration",
-    "Bank statements (last 6 months)",
-    "Collateral documentation (if applicable)",
-    "Guarantor information",
-    "Completed loan application form",
-  ];
+  const purposeLoans = t("loans.purpose_loans.items", {
+    returnObjects: true,
+  }).map((loan, index) => ({
+    id: index + 4,
+    name: loan.name,
+    icon: [
+      BuildingOfficeIcon,
+      TruckIcon,
+      WrenchScrewdriverIcon,
+      BuildingStorefrontIcon,
+    ][index],
+    description: loan.description,
+    features: loan.features,
+  }));
 
-  const process = [
-    {
-      step: 1,
-      title: "Application",
-      description: "Submit your loan application with required documents",
-    },
-    {
-      step: 2,
-      title: "Review",
-      description: "Our team reviews your application and credit history",
-    },
-    {
-      step: 3,
-      title: "Approval",
-      description: "Receive approval notification and loan terms",
-    },
-    {
-      step: 4,
-      title: "Disbursement",
-      description: "Funds are transferred to your account",
-    },
-  ];
+  const requirements = t("loans.requirements.items", { returnObjects: true });
+
+  const process = t("loans.application_process.items", {
+    returnObjects: true,
+  }).map((item, index) => ({
+    step: index + 1,
+    title: item.title,
+    description: item.description,
+  }));
 
   return (
     <div className="min-h-screen bg-gray-50 pt-20">
@@ -151,7 +69,7 @@ const Loans = () => {
           />
           <div className="relative z-10 py-16 px-4 sm:px-6 lg:px-8">
             <h1 className="text-4xl md:text-5xl font-bold text-white mb-6">
-              Loan Services
+              {t("loans.header.title")}
             </h1>
           </div>
         </motion.div>
@@ -163,6 +81,9 @@ const Loans = () => {
           transition={{ delay: 0.1 }}
           className="mb-16"
         >
+          <h2 className="text-3xl font-bold text-gray-900 mb-8 text-center">
+            {t("loans.duration_loans.title")}
+          </h2>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {durationLoans.map((loan) => (
               <div
@@ -177,7 +98,6 @@ const Loans = () => {
                     {loan.name}
                   </h3>
                 </div>
-                <p className="text-gray-600 mb-6">{loan.description}</p>
                 <div className="space-y-2 mb-6">
                   {loan.features.map((feature, idx) => (
                     <div key={idx} className="flex items-center">
@@ -187,7 +107,7 @@ const Loans = () => {
                   ))}
                 </div>
                 <button className="w-full bg-gradient-to-r from-blue-600 to-green-600 text-white py-3 rounded-lg hover:from-blue-700 hover:to-green-700 transition-all duration-200">
-                  Apply Now
+                  {t("loans.apply_button")}
                 </button>
               </div>
             ))}
@@ -202,7 +122,7 @@ const Loans = () => {
           className="mb-16"
         >
           <h2 className="text-3xl font-bold text-gray-900 mb-8 text-center">
-            Loans by Purpose
+            {t("loans.purpose_loans.title")}
           </h2>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
             {purposeLoans.map((loan) => (
@@ -228,7 +148,7 @@ const Loans = () => {
                   ))}
                 </div>
                 <button className="w-full bg-gradient-to-r from-blue-600 to-green-600 text-white py-3 rounded-lg hover:from-blue-700 hover:to-green-700 transition-all duration-200">
-                  Apply Now
+                  {t("loans.apply_button")}
                 </button>
               </div>
             ))}
@@ -243,7 +163,7 @@ const Loans = () => {
           className="bg-white rounded-xl shadow-lg p-8 mb-16"
         >
           <h2 className="text-3xl font-bold text-gray-900 mb-8 text-center">
-            Application Process
+            {t("loans.application_process.title")}
           </h2>
           <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
             {process.map((item) => (
@@ -260,26 +180,6 @@ const Loans = () => {
           </div>
         </motion.div>
 
-        {/* Requirements */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.6 }}
-          className="bg-white rounded-xl shadow-lg p-8 mb-16"
-        >
-          <h2 className="text-3xl font-bold text-gray-900 mb-8 text-center">
-            Loan Requirements
-          </h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-            {requirements.map((requirement, index) => (
-              <div key={index} className="flex items-center">
-                <CheckCircleIcon className="w-6 h-6 text-green-500 mr-3" />
-                <span className="text-gray-700">{requirement}</span>
-              </div>
-            ))}
-          </div>
-        </motion.div>
-
         {/* Interest Rate Section */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -291,7 +191,7 @@ const Loans = () => {
             <div className="mt-8">
               <Link to="/loan-calculator">
                 <button className="w-full bg-gradient-to-r from-blue-600 to-green-600 text-white py-3 rounded-lg hover:from-blue-700 hover:to-green-700 transition-all duration-200">
-                  Calculate Your Loan
+                  {t("loans.interest_rate.button")}
                 </button>
               </Link>
             </div>

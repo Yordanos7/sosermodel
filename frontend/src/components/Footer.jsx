@@ -57,7 +57,7 @@ const Footer = () => {
               <div className="flex items-center space-x-3 text-gray-400">
                 <GlobeAltIcon className="w-5 h-5 flex-shrink-0" />
                 <a
-                  href="https://www.example.com"
+                  href="https://www.soserunion.com"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="hover:text-white transition-colors duration-200"

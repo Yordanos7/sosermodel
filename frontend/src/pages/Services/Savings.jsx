@@ -9,92 +9,48 @@ import {
   UserGroupIcon,
 } from "@heroicons/react/24/outline";
 import { useNavigate } from "react-router-dom";
+import { useTranslation } from "react-i18next";
 
 const Savings = () => {
-  const savingsAccounts = [
-    {
-      name: "Compulsory saving",
-      icon: BanknotesIcon,
-      features: [
-        "A mandatory saving type",
-        "Free online banking",
-        "which can not withdrawn with out due purpose and members decision",
-      ],
-      gradient: "from-orange-300 to-orange-300",
-    },
-    {
-      name: "Voluntary Saving",
-      icon: ChartBarIcon,
-      features: [
-        "no tax which members can easily save and withdraw like most banks saving today",
-      ],
-      gradient: "from-green-500 to-green-600",
-    },
-    {
-      name: "Contractual Saving",
-      icon: UserGroupIcon,
-      features: [
-        "Contractual saving those saving based on agreement based on savers and the union certain terms and condition",
-      ],
-      gradient: "from-green-700 to-green-800",
-    },
-    {
-      name: "current account",
-      icon: UserGroupIcon,
-      features: [
-        "current account saving non interest bearing saving and very easy to withdraw.",
-      ],
-      gradient: "from-green-700 to-green-800",
-    },
-    {
-      name: "Children saving",
-      icon: UserGroupIcon,
-      features: [
-        "Children Saving a saving Type with similar conditions, but loos, like contractual savings",
-      ],
-      gradient: "from-green-700 to-green-800",
-    },
-    {
-      name: "Special Savings",
-      icon: UserGroupIcon,
-      features: [
-        "Financial literacy ",
-        "Low minimum balance",
-        "Educational resources",
-        "Parental oversight options",
-      ],
-      gradient: "from-green-700 to-green-800",
-    },
-  ];
-
-  const benefits = [
-    {
-      icon: ShieldCheckIcon,
-      title: "Insurance Products",
-      description:
-        "Protects loan repayments in case of the debtor’s or their spouse’s death, including a funeral service benefit of 1,000 birr.",
-    },
-    {
-      icon: CurrencyDollarIcon,
-      title: "Variety of Savings Options",
-      description:
-        "Offers a 7% daily accrued interest with no tax, providing a secure and rewarding option for members who commit to long-term savings with restricted withdrawals.",
-    },
-    {
-      icon: CalendarDaysIcon,
-      title: "Diverse Service Offerings",
-      description:
-        "Soser provides a range of financial services tailored to cooperative societies, including savings, credit, insurance, training, and technical support. This comprehensive approach ensures members have access to multiple financial tools to meet their needs",
-    },
-  ];
-
+  const { t } = useTranslation();
   const navigate = useNavigate();
+
+  const savingsAccounts = t("savings.savings_accounts", {
+    returnObjects: true,
+  }).map((account, index) => ({
+    name: account.name,
+    icon: [
+      BanknotesIcon,
+      ChartBarIcon,
+      UserGroupIcon,
+      UserGroupIcon,
+      UserGroupIcon,
+      UserGroupIcon,
+    ][index],
+    features: account.features,
+    gradient: [
+      "from-orange-300 to-orange-300",
+      "from-green-500 to-green-600",
+      "from-green-700 to-green-800",
+      "from-green-700 to-green-800",
+      "from-green-700 to-green-800",
+      "from-green-700 to-green-800",
+    ][index],
+  }));
+
+  const benefits = t("savings.benefits.items", { returnObjects: true }).map(
+    (benefit, index) => ({
+      icon: [ShieldCheckIcon, CurrencyDollarIcon, CalendarDaysIcon][index],
+      title: benefit.title,
+      description: benefit.description,
+    })
+  );
 
   return (
     <div className="min-h-screen pt-16 lg:pt-20 bg-gray-50">
       {/* Hero Section */}
       <section
-        className="relative h-96 bg-gradient-to-r from-orange-300 to-green-600 py-20"
+        className="relative h-screen max-h-[800px] w-full overflow-hidden"
         style={{
           backgroundImage: `url(/save.jpeg)`,
           backgroundSize: "cover",
@@ -102,7 +58,7 @@ const Savings = () => {
           backgroundRepeat: "no-repeat",
         }}
       >
-        <div className="absolute inset-0 bg-black bg-opacity-50"></div>
+        <div className="absolute inset-0  bg-opacity-50"></div>
         <div className="relative z-10 h-full flex items-center">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <motion.div
@@ -113,12 +69,10 @@ const Savings = () => {
             >
               <BanknotesIcon className="w-16 h-16 mx-auto mb-6 text-white" />
               <h1 className="text-4xl md:text-5xl font-bold mb-6 text-white">
-                Savings Accounts
+                {t("savings.hero.title")}
               </h1>
               <p className="text-xl mb-8 leading-relaxed text-white/90">
-                Secure your financial future with our comprehensive savings
-                solutions. Earn competitive interest while keeping your money
-                safe and accessible.
+                {t("savings.hero.description")}
               </p>
             </motion.div>
           </div>
@@ -136,11 +90,10 @@ const Savings = () => {
             className="text-center mb-16"
           >
             <h2 className="text-3xl md:text-4xl font-bold text-gray-800 mb-6">
-              Choose Your Savings Account
+              {t("savings.account_types.title")}
             </h2>
             <p className="text-lg text-gray-600 max-w-2xl mx-auto">
-              Find the perfect savings account that matches your financial goals
-              and lifestyle.
+              {t("savings.account_types.description")}
             </p>
           </motion.div>
 
@@ -164,7 +117,9 @@ const Savings = () => {
 
                 <div className="p-6">
                   <h4 className="font-semibold text-gray-800 mb-4">
-                    Features:
+                    {t("savings.account_types.features_label", {
+                      defaultValue: "Features",
+                    })}
                   </h4>
                   <ul className="space-y-3">
                     {account.features.map((feature, idx) => (
@@ -178,7 +133,7 @@ const Savings = () => {
                     className="w-full mt-6 bg-gradient-to-r from-blue-600 to-green-600 text-white py-3 rounded-lg hover:from-blue-700 hover:to-green-700 transition-all duration-200 font-semibold"
                     onClick={() => navigate("/get-started")}
                   >
-                    Open Account
+                    {t("savings.account_button")}
                   </button>
                 </div>
               </motion.div>
@@ -192,7 +147,7 @@ const Savings = () => {
         <div className="absolute inset-0">
           <img
             src="https://trustlinkfinancial.com/wp-content/uploads/2023/09/savings.jpg"
-            alt="Benefits of Sosser Savings"
+            alt={t("savings.benefits_image_alt")}
             className="w-full h-full object-cover"
           />
           <div className="absolute inset-0 bg-black bg-opacity-30"></div>
@@ -206,7 +161,7 @@ const Savings = () => {
             className="text-center mb-16"
           >
             <h2 className="text-3xl md:text-4xl font-bold text-white mb-6">
-              Why Choose Sosser Savings?
+              {t("savings.benefits.title")}
             </h2>
           </motion.div>
 
@@ -253,17 +208,16 @@ const Savings = () => {
             viewport={{ once: true }}
           >
             <h2 className="text-3xl md:text-4xl font-bold text-white mb-6">
-              Start Saving Today
+              {t("savings.cta.title")}
             </h2>
             <p className="text-xl text-white/90 mb-8 max-w-2xl mx-auto">
-              Open your savings account online in minutes and start earning
-              competitive returns on your money.
+              {t("savings.cta.description")}
             </p>
             <button
               className="bg-white text-blue-600 px-8 py-4 rounded-full text-lg font-semibold hover:bg-gray-100 transition-all duration-300 transform hover:-translate-y-1 hover:shadow-xl"
               onClick={() => navigate("/get-started")}
             >
-              Open Savings Account
+              {t("savings.cta.button")}
             </button>
           </motion.div>
         </div>

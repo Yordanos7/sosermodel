@@ -1,6 +1,12 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { motion } from "framer-motion";
-import { addVacancy } from "../../api/vacancy";
+import {
+  addVacancy,
+  getVacancies,
+  getVacancy,
+  updateVacancy,
+  deleteVacancy,
+} from "../../api/vacancy";
 import {
   PlusIcon,
   BriefcaseIcon,
@@ -10,10 +16,16 @@ import {
   EyeIcon,
   CheckCircleIcon,
   AcademicCapIcon,
+  PencilIcon,
+  TrashIcon,
 } from "@heroicons/react/24/outline";
-import axios from "axios";
+import { useParams, useNavigate } from "react-router-dom";
+import { useAuth } from "../../context/AuthContext";
 
 const AddVacancy = () => {
+  const { id } = useParams();
+  const navigate = useNavigate();
+  const { token } = useAuth();
   const [formData, setFormData] = useState({
     title: "",
     department: "",
@@ -32,10 +44,72 @@ const AddVacancy = () => {
     contactPhone: "",
     hiringManager: "",
     urgent: false,
+    image: null,
   });
-
+  const [vacancies, setVacancies] = useState([]);
   const [preview, setPreview] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const [isLoading, setIsLoading] = useState(true);
+  const [isSuccess, setIsSuccess] = useState(false);
+
+  useEffect(() => {
+    if (isSuccess) {
+      const timer = setTimeout(() => {
+        setIsSuccess(false);
+        setFormData({
+          title: "",
+          department: "",
+          location: "",
+          employmentType: "full-time",
+          experienceLevel: "mid-level",
+          salaryMin: "",
+          salaryMax: "",
+          applicationDeadline: "",
+          jobDescription: "",
+          responsibilities: "",
+          requirements: "",
+          qualifications: "",
+          benefits: "",
+          contactEmail: "",
+          contactPhone: "",
+          hiringManager: "",
+          urgent: false,
+          image: null,
+        });
+      }, 3000);
+      return () => clearTimeout(timer);
+    }
+  }, [isSuccess]);
+
+  useEffect(() => {
+    const fetchVacancies = async () => {
+      try {
+        const data = await getVacancies();
+        setVacancies(data);
+      } catch (error) {
+        console.error("Failed to fetch vacancies:", error);
+      } finally {
+        setIsLoading(false);
+      }
+    };
+
+    if (id) {
+      const fetchVacancy = async () => {
+        try {
+          const data = await getVacancy(id);
+          setFormData({
+            ...data,
+            applicationDeadline: data.applicationDeadline.split("T")[0],
+          });
+        } catch (error) {
+          console.error("Failed to fetch vacancy:", error);
+        }
+      };
+      fetchVacancy();
+    }
+
+    fetchVacancies();
+  }, [id]);
 
   const departments = [
     { value: "finance", label: "Finance" },
@@ -48,6 +122,7 @@ const AddVacancy = () => {
     { value: "audit-compliance", label: "Audit & Compliance" },
     { value: "risk-management", label: "Risk Management" },
     { value: "business-development", label: "Business Development" },
+    { value: "other", label: "other" },
   ];
 
   const employmentTypes = [
@@ -66,63 +141,71 @@ const AddVacancy = () => {
   ];
 
   const locations = [
-    { value: "addis-ababa", label: "Addis Ababa" },
-    { value: "bahir-dar", label: "Bahir Dar" },
-    { value: "mekelle", label: "Mekelle" },
-    { value: "hawassa", label: "Hawassa" },
-    { value: "dire-dawa", label: "Dire Dawa" },
-    { value: "jimma", label: "Jimma" },
-    { value: "gondar", label: "Gondar" },
-    { value: "remote", label: "Remote" },
-    { value: "multiple", label: "Multiple Locations" },
+    { value: "Dangila", label: "Dangila" },
+    { value: "Injibara", label: "Injibara" },
+    { value: "Addiskidam", label: "Addiskidam" },
+    { value: "Jawi", label: "Jawi" },
+    { value: "other", label: "other" },
   ];
 
   const handleInputChange = (e) => {
-    const { name, value, type, checked } = e.target;
-    setFormData((prev) => ({
-      ...prev,
-      [name]: type === "checkbox" ? checked : value,
-    }));
+    const { name, value, type, checked, files } = e.target;
+    if (type === "file") {
+      setFormData((prev) => ({
+        ...prev,
+        [name]: files[0],
+      }));
+    } else {
+      setFormData((prev) => ({
+        ...prev,
+        [name]: type === "checkbox" ? checked : value,
+      }));
+    }
   };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
     setIsSubmitting(true);
 
-    const dataToSubmit = {
-      ...formData,
-      salaryMin: formData.salaryMin === "" ? null : Number(formData.salaryMin),
-      salaryMax: formData.salaryMax === "" ? null : Number(formData.salaryMax),
-    };
+    const dataToSubmit = new FormData();
+    for (const key in formData) {
+      if (key === "salaryMin" || key === "salaryMax") {
+        if (formData[key] !== "") {
+          dataToSubmit.append(key, formData[key]);
+        }
+      } else {
+        dataToSubmit.append(key, formData[key]);
+      }
+    }
 
     try {
-      await addVacancy(dataToSubmit);
-      alert("Job vacancy posted successfully!");
-      // Reset form
-      setFormData({
-        title: "",
-        department: "",
-        location: "",
-        employmentType: "full-time",
-        experienceLevel: "mid-level",
-        salaryMin: "",
-        salaryMax: "",
-        applicationDeadline: "",
-        jobDescription: "",
-        responsibilities: "",
-        requirements: "",
-        qualifications: "",
-        benefits: "",
-        contactEmail: "",
-        contactPhone: "",
-        hiringManager: "",
-        urgent: false,
-      });
+      if (id) {
+        await updateVacancy(id, dataToSubmit, token);
+        alert("Job vacancy updated successfully!");
+        navigate("/admin/add-vacancy");
+      } else {
+        await addVacancy(dataToSubmit, token);
+        alert("Job vacancy posted successfully!");
+        setIsSuccess(true);
+      }
+      const data = await getVacancies();
+      setVacancies(data);
     } catch (error) {
-      console.error("Failed to post vacancy:", error);
-      alert("Failed to post job vacancy. Please try again.");
+      console.error("Failed to save vacancy:", error);
+      alert("Failed to save job vacancy. Please try again.");
     } finally {
       setIsSubmitting(false);
+    }
+  };
+
+  const handleDelete = async (vacancyId) => {
+    if (window.confirm("Are you sure you want to delete this vacancy?")) {
+      try {
+        await deleteVacancy(vacancyId, token);
+        setVacancies(vacancies.filter((v) => v.id !== vacancyId));
+      } catch (error) {
+        console.error("Failed to delete vacancy:", error);
+      }
     }
   };
 
@@ -146,10 +229,12 @@ const AddVacancy = () => {
           className="text-center mb-12"
         >
           <h1 className="text-4xl font-bold text-gray-900 mb-4">
-            Post New Job Vacancy
+            {id ? "Edit Job Vacancy" : "Post New Job Vacancy"}
           </h1>
           <p className="text-xl text-gray-600">
-            Find the right talent for your team
+            {id
+              ? "Update the details for the job posting."
+              : "Find the right talent for your team"}
           </p>
         </motion.div>
 
@@ -262,6 +347,17 @@ const AddVacancy = () => {
                       ))}
                     </select>
                   </div>
+                </div>
+                <div className="mb-6">
+                  <label className="block text-sm font-medium text-gray-900 mb-2">
+                    Vacancy Image
+                  </label>
+                  <input
+                    type="file"
+                    name="image"
+                    onChange={handleInputChange}
+                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
+                  />
                 </div>
               </div>
 
@@ -476,19 +572,28 @@ const AddVacancy = () => {
                 <button
                   type="submit"
                   disabled={
-                    isSubmitting || !formData.title || !formData.department
+                    isSubmitting ||
+                    !formData.title ||
+                    !formData.department ||
+                    !formData.location ||
+                    !formData.applicationDeadline ||
+                    !formData.jobDescription ||
+                    !formData.responsibilities ||
+                    !formData.requirements ||
+                    !formData.hiringManager ||
+                    !formData.contactEmail
                   }
                   className="flex-1 flex items-center justify-center px-6 py-3 bg-gradient-to-r from-blue-600 to-green-600 text-white rounded-lg hover:from-blue-700 hover:to-green-700 disabled:opacity-50 disabled:cursor-not-allowed transition-all duration-200"
                 >
                   {isSubmitting ? (
                     <>
                       <div className="animate-spin rounded-full h-5 w-5 border-b-2 border-white mr-2"></div>
-                      Posting Job...
+                      {id ? "Updating Job..." : "Posting Job..."}
                     </>
                   ) : (
                     <>
                       <PlusIcon className="w-5 h-5 mr-2" />
-                      Post Job Vacancy
+                      {id ? "Update Job Vacancy" : "Post Job Vacancy"}
                     </>
                   )}
                 </button>
@@ -559,27 +664,44 @@ const AddVacancy = () => {
             <div className="bg-white rounded-xl shadow-lg p-6">
               <h3 className="text-lg font-semibold text-gray-900 mb-4 flex items-center">
                 <ClockIcon className="w-5 h-5 mr-2 text-blue-600" />
-                Recent Postings
+                Existing Vacancies
               </h3>
               <div className="space-y-3">
-                <div className="border-l-4 border-blue-500 pl-3">
-                  <p className="text-sm font-medium text-gray-900">
-                    Senior Financial Analyst
-                  </p>
-                  <p className="text-xs text-gray-500">Posted 2 days ago</p>
-                </div>
-                <div className="border-l-4 border-green-500 pl-3">
-                  <p className="text-sm font-medium text-gray-900">
-                    Digital Marketing Specialist
-                  </p>
-                  <p className="text-xs text-gray-500">Posted 1 week ago</p>
-                </div>
-                <div className="border-l-4 border-purple-500 pl-3">
-                  <p className="text-sm font-medium text-gray-900">
-                    Loan Officer
-                  </p>
-                  <p className="text-xs text-gray-500">Posted 2 weeks ago</p>
-                </div>
+                {isLoading ? (
+                  <p>Loading vacancies...</p>
+                ) : (
+                  vacancies.map((vacancy) => (
+                    <div
+                      key={vacancy.id}
+                      className="border-l-4 border-blue-500 pl-3 flex justify-between items-center"
+                    >
+                      <div>
+                        <p className="text-sm font-medium text-gray-900">
+                          {vacancy.title}
+                        </p>
+                        <p className="text-xs text-gray-500">
+                          {vacancy.department}
+                        </p>
+                      </div>
+                      <div className="flex space-x-2">
+                        <button
+                          onClick={() =>
+                            navigate(`/admin/add-vacancy/${vacancy.id}`)
+                          }
+                          className="text-blue-600 hover:text-blue-800"
+                        >
+                          <PencilIcon className="w-5 h-5" />
+                        </button>
+                        <button
+                          onClick={() => handleDelete(vacancy.id)}
+                          className="text-red-600 hover:text-red-800"
+                        >
+                          <TrashIcon className="w-5 h-5" />
+                        </button>
+                      </div>
+                    </div>
+                  ))
+                )}
               </div>
             </div>
           </motion.div>

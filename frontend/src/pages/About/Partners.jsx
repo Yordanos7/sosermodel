@@ -1,42 +1,45 @@
 import React from "react";
 import { motion } from "framer-motion";
+import { useTranslation } from "react-i18next";
 
 const Partners = () => {
+  const { t } = useTranslation();
+
   const partners = [
     {
       id: 1,
       name: "Admas multipurpose cooperatives union",
-      category: "Union",
+      category: t("partners.categories.Union"),
       logo: "/p4.png",
     },
     {
       id: 2,
       name: "Wura saving and credit cooperatives union Ltd.",
-      category: "Union",
+      category: t("partners.categories.Union"),
       logo: "/p3.png",
     },
     {
       id: 3,
       name: "Development Bank of Ethiopia",
-      category: "Union",
+      category: t("partners.categories.Union"),
       logo: "https://upload.wikimedia.org/wikipedia/en/f/f9/Development_Bank_of_Ethiopia.png",
     },
     {
       id: 4,
       name: "Cord aid Ethiopia",
-      category: "NGOs",
+      category: t("partners.categories.NGOs"),
       logo: "/p2.png",
     },
     {
       id: 5,
       name: "FINISH Mondial",
-      category: "NGOs",
+      category: t("partners.categories.NGOs"),
       logo: "/p1.png",
     },
     {
       id: 6,
       name: "KOKEB SACCOOP UNION LTD",
-      category: "Union",
+      category: t("partners.categories.Union"),
       description: "Financial services for cooperatives and SMEs.",
       logo: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTvpsq0a0ATvQkbR8rjBDXam4wGY8PNDkDNOQ&s",
       website: "https://coopbankoromia.com.et/",
@@ -53,11 +56,10 @@ const Partners = () => {
           className="text-center mb-16"
         >
           <h1 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
-            Our Strategic Partners
+            {t("partners.header.title")}
           </h1>
           <p className="text-xl text-gray-600 max-w-3xl mx-auto mb-8">
-            We collaborate with leading organizations to expand our reach and
-            enhance our services for members.
+            {t("partners.header.description")}
           </p>
         </motion.div>
 
@@ -100,9 +102,9 @@ const Partners = () => {
                 </h3>
                 <span
                   className={`inline-block px-3 py-1 rounded-full text-sm mb-4 ${
-                    partner.category === "Union"
+                    partner.category === t("partners.categories.Union")
                       ? "bg-blue-100 text-blue-800"
-                      : partner.category === "NGOs"
+                      : partner.category === t("partners.categories.NGOs")
                       ? "bg-green-100 text-green-800"
                       : "bg-gray-100 text-gray-800"
                   }`}
@@ -122,53 +124,33 @@ const Partners = () => {
           className="bg-white rounded-xl shadow-lg p-8"
         >
           <h2 className="text-3xl font-bold text-gray-900 mb-8 text-center">
-            Partnership Benefits
+            {t("partners.partnership_benefits.title")}
           </h2>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-            <div className="text-center">
-              <div className="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-4">
-                <span className="text-2xl">🌐</span>
+            {t("partners.partnership_benefits.items", {
+              returnObjects: true,
+            }).map((benefit, index) => (
+              <div key={index} className="text-center">
+                <div
+                  className={`w-16 h-16 ${
+                    [
+                      "bg-blue-100",
+                      "bg-green-100",
+                      "bg-yellow-100",
+                      "bg-purple-100",
+                    ][index]
+                  } rounded-full flex items-center justify-center mx-auto mb-4`}
+                >
+                  <span className="text-2xl">
+                    {["🌐", "💡", "🤝", "📈"][index]}
+                  </span>
+                </div>
+                <h3 className="text-lg font-semibold text-gray-900 mb-2">
+                  {benefit.title}
+                </h3>
+                <p className="text-gray-600">{benefit.description}</p>
               </div>
-              <h3 className="text-lg font-semibold text-gray-900 mb-2">
-                Global Reach
-              </h3>
-              <p className="text-gray-600">
-                Access to international markets and services
-              </p>
-            </div>
-            <div className="text-center">
-              <div className="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
-                <span className="text-2xl">💡</span>
-              </div>
-              <h3 className="text-lg font-semibold text-gray-900 mb-2">
-                Innovation
-              </h3>
-              <p className="text-gray-600">
-                Latest technology and financial solutions
-              </p>
-            </div>
-            <div className="text-center">
-              <div className="w-16 h-16 bg-yellow-100 rounded-full flex items-center justify-center mx-auto mb-4">
-                <span className="text-2xl">🤝</span>
-              </div>
-              <h3 className="text-lg font-semibold text-gray-900 mb-2">
-                Expertise
-              </h3>
-              <p className="text-gray-600">
-                Shared knowledge and best practices
-              </p>
-            </div>
-            <div className="text-center">
-              <div className="w-16 h-16 bg-purple-100 rounded-full flex items-center justify-center mx-auto mb-4">
-                <span className="text-2xl">📈</span>
-              </div>
-              <h3 className="text-lg font-semibold text-gray-900 mb-2">
-                Growth
-              </h3>
-              <p className="text-gray-600">
-                Sustainable development and expansion
-              </p>
-            </div>
+            ))}
           </div>
         </motion.div>
       </div>

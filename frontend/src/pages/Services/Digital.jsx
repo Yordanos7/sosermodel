@@ -10,150 +10,50 @@ import {
   QrCodeIcon,
   ArrowsRightLeftIcon,
 } from "@heroicons/react/24/outline";
+import { useTranslation } from "react-i18next";
 
 const Digital = () => {
-  const services = [
-    {
-      id: 1,
-      name: "Mobile Banking",
-      icon: DevicePhoneMobileIcon,
-      description:
-        "Complete banking services at your fingertips with our mobile app.",
-      features: [
-        "Account balance inquiry",
-        "Money transfer",
-        "Bill payments",
-        "Transaction history",
-        "ATM locator",
-      ],
-    },
-    {
-      id: 2,
-      name: "Digital Payments",
-      icon: CreditCardIcon,
-      description: "Secure and instant payment solutions for all your needs.",
-      features: [
-        "QR code payments",
-        "Contactless payments",
-        "Online shopping",
-        "Utility bill payments",
-        "Merchant payments",
-      ],
-    },
-    {
-      id: 3,
-      name: "TeleBirr Integration",
-      icon: ArrowsRightLeftIcon,
-      description:
-        "Seamless integration with Ethiopia's leading mobile money platform.",
-      features: [
-        "Instant transfers",
-        "Cash in/out",
-        "Airtime purchase",
-        "International remittances",
-        "Merchant payments",
-      ],
-    },
-    {
-      id: 4,
-      name: "Online Banking",
-      icon: GlobeAltIcon,
-      description:
-        "Full-featured web banking platform for comprehensive account management.",
-      features: [
-        "Account management",
-        "Loan applications",
-        "Investment tracking",
-        "Statement downloads",
-        "Security settings",
-      ],
-    },
-  ];
+  const { t } = useTranslation();
 
-  const benefits = [
-    {
-      icon: ClockIcon,
-      title: "24/7 Availability",
-      description:
-        "Access your account and perform transactions anytime, anywhere.",
-    },
-    {
-      icon: ShieldCheckIcon,
-      title: "Bank-Level Security",
-      description:
-        "Advanced encryption and multi-factor authentication protect your data.",
-    },
-    {
-      icon: BanknotesIcon,
-      title: "Lower Fees",
-      description:
-        "Reduced transaction costs compared to traditional banking methods.",
-    },
-    {
-      icon: QrCodeIcon,
-      title: "Easy Payments",
-      description: "Quick QR code scanning for instant payments and transfers.",
-    },
-  ];
+  const services = t("digital.services.items", { returnObjects: true }).map(
+    (service, index) => ({
+      id: index + 1,
+      name: service.name,
+      icon: [
+        DevicePhoneMobileIcon,
+        CreditCardIcon,
+        ArrowsRightLeftIcon,
+        GlobeAltIcon,
+      ][index],
+      description: service.description,
+      features: service.features,
+    })
+  );
 
-  const paymentMethods = [
-    {
-      name: "TeleBirr",
-      logo: "📱",
-      description: "Ethiopia's most popular mobile money service",
-      features: [
-        "Instant transfers",
-        "Bill payments",
-        "Merchant payments",
-        "International remittances",
-      ],
-    },
-    {
-      name: "Awash Bank Mobile",
-      logo: "🏦",
-      description: "Direct integration with Awash Bank services",
-      features: [
-        "Account linking",
-        "Fund transfers",
-        "Balance inquiries",
-        "Transaction history",
-      ],
-    },
-    {
-      name: "Bank of Abyssinia",
-      logo: "💳",
-      description: "Seamless connectivity with BOA digital services",
-      features: [
-        "Cross-bank transfers",
-        "Payment processing",
-        "Account management",
-        "Mobile banking",
-      ],
-    },
-  ];
+  const benefits = t("digital.benefits.items", { returnObjects: true }).map(
+    (benefit, index) => ({
+      icon: [ClockIcon, ShieldCheckIcon, BanknotesIcon, QrCodeIcon][index],
+      title: benefit.title,
+      description: benefit.description,
+    })
+  );
 
-  const steps = [
-    {
-      step: 1,
-      title: "Download App",
-      description: "Get our mobile app from App Store or Google Play",
-    },
-    {
-      step: 2,
-      title: "Register Account",
-      description: "Sign up with your phone number and verify identity",
-    },
-    {
-      step: 3,
-      title: "Link Accounts",
-      description: "Connect your existing bank accounts and payment methods",
-    },
-    {
-      step: 4,
-      title: "Start Banking",
-      description: "Enjoy seamless digital banking experience",
-    },
-  ];
+  const paymentMethods = t("digital.payment_methods.items", {
+    returnObjects: true,
+  }).map((method, index) => ({
+    name: method.name,
+    logo: ["📱", "🏦", "💳"][index],
+    description: method.description,
+    features: method.features,
+  }));
+
+  const steps = t("digital.steps.items", { returnObjects: true }).map(
+    (item, index) => ({
+      step: index + 1,
+      title: item.title,
+      description: item.description,
+    })
+  );
 
   return (
     <div className="min-h-screen bg-gray-50 pt-20">
@@ -173,11 +73,10 @@ const Digital = () => {
           />
           <div className="relative z-10 h-full flex flex-col items-center justify-center px-4 sm:px-6 lg:px-8">
             <h1 className="text-4xl md:text-5xl font-bold text-white mb-6">
-              Digital Banking Services
+              {t("digital.header.title")}
             </h1>
             <p className="text-xl text-white max-w-3xl mx-auto">
-              Experience the future of banking with our comprehensive digital
-              solutions designed for modern Ethiopian lifestyles.
+              {t("digital.header.subtitle")}
             </p>
           </div>
         </motion.div>
@@ -213,7 +112,7 @@ const Digital = () => {
               </div>
 
               <button className="w-full bg-gradient-to-r from-blue-600 to-green-600 text-white py-3 rounded-lg hover:from-blue-700 hover:to-green-700 transition-all duration-200">
-                Get Started
+                {t("digital.get_started_button")}
               </button>
             </motion.div>
           ))}
@@ -227,7 +126,7 @@ const Digital = () => {
           className="bg-white rounded-xl shadow-lg p-8 mb-16"
         >
           <h2 className="text-3xl font-bold text-gray-900 mb-8 text-center">
-            Why Choose Digital Banking?
+            {t("digital.benefits.title")}
           </h2>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
             {benefits.map((benefit, index) => (
@@ -252,7 +151,7 @@ const Digital = () => {
           className="bg-white rounded-xl shadow-lg p-8 mb-16"
         >
           <h2 className="text-3xl font-bold text-gray-900 mb-8 text-center">
-            Supported Payment Methods
+            {t("digital.payment_methods.title")}
           </h2>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {paymentMethods.map((method, index) => (
@@ -285,7 +184,7 @@ const Digital = () => {
           className="bg-white rounded-xl shadow-lg p-8 mb-16"
         >
           <h2 className="text-3xl font-bold text-gray-900 mb-8 text-center">
-            Getting Started is Easy
+            {t("digital.steps.title")}
           </h2>
           <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
             {steps.map((item, index) => (

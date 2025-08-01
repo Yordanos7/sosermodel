@@ -1,7 +1,7 @@
 import axios from "axios";
 
 const api = axios.create({
-  baseURL: "http://localhost:5000/api", // replace with your API base URL
+  baseURL: import.meta.env.VITE_API_BASE_URL || "https://soserunion.com/api",
   timeout: 1800000, // 30 minutes
   withCredentials: true,
 });

@@ -317,13 +317,13 @@ const LoanCalculator = () => {
                 <div>
                   <p className="text-sm text-gray-600">Scheduled payment</p>
                   <p className="text-xl font-bold text-blue-600">
-                    ${results.scheduledPayment}
+                    {results.scheduledPayment} Birr
                   </p>
                 </div>
                 <div>
                   <p className="text-sm text-gray-600">Actual payment</p>
                   <p className="text-xl font-bold text-blue-600">
-                    ${results.actualPayment}
+                    {results.actualPayment} Birr
                   </p>
                 </div>
                 <div>
@@ -351,30 +351,30 @@ const LoanCalculator = () => {
                 <div>
                   <p className="text-sm text-gray-600">Total early payments</p>
                   <p className="text-xl font-bold text-blue-600">
-                    ${results.totalEarlyPayments}
+                    {results.totalEarlyPayments} Birr
                   </p>
                 </div>
                 <div>
                   <p className="text-sm text-gray-600">Total interest</p>
                   <p className="text-xl font-bold text-red-600">
-                    ${results.totalInterest}
+                    {results.totalInterest} Birr
                   </p>
                 </div>
                 <div>
                   <p className="text-sm text-gray-600">Total cost of loan</p>
                   <p className="text-xl font-bold text-green-600">
-                    ${results.totalCost}
+                    {results.totalCost} Birr
                   </p>
                 </div>
                 <div>
                   <p className="text-sm text-gray-600">Interest savings</p>
                   <p className="text-xl font-bold text-green-600">
-                    $
                     {(
                       parseFloat(results.scheduledPayment) *
                         results.scheduledPayments -
                       parseFloat(results.totalCost)
-                    ).toFixed(2)}
+                    ).toFixed(2)}{" "}
+                    Birr
                   </p>
                 </div>
               </div>

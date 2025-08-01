@@ -2,7 +2,6 @@ import React, { useState, useEffect } from "react";
 import DashboardHeader from "./components/DashboardHeader";
 import DashboardStats from "./components/DashboardStats";
 import QuickActions from "./components/QuickActions";
-import RecentActivity from "./components/RecentActivity";
 import { useAuth } from "../../context/AuthContext";
 import { getDashboardStats } from "../../api/user";
 
@@ -36,7 +35,6 @@ const AdminDashboard = () => {
           <DashboardStats stats={stats} />
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
             <QuickActions />
-            <RecentActivity />
           </div>
         </div>
       </div>

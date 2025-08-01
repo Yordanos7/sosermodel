@@ -1,6 +1,11 @@
 import React, { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 import { LinkIcon, EyeIcon, XCircleIcon } from "@heroicons/react/24/outline";
+import {
+  getAllPayments,
+  updatePayment,
+  deletePayment,
+} from "../../api/payment";
 
 const ManagePayments = () => {
   const [payments, setPayments] = useState([]);
@@ -16,16 +21,7 @@ const ManagePayments = () => {
   const fetchPayments = async () => {
     setIsLoading(true);
     try {
-      const token = localStorage.getItem("sosser_token");
-      if (!token)
-        throw new Error("No authentication token found. Please log in.");
-      const res = await fetch("http://localhost:5000/api/payments", {
-        headers: {
-          Authorization: `Bearer ${token}`,
-        },
-      });
-      if (!res.ok) throw new Error("Failed to fetch payments");
-      const data = await res.json();
+      const data = await getAllPayments();
       setPayments(data);
     } catch (err) {
       setError(err.message);
@@ -71,24 +67,7 @@ const ManagePayments = () => {
   const handleToggleStatus = async (paymentId, currentStatus) => {
     const newStatus = currentStatus === "pending" ? "completed" : "failed";
     try {
-      const token = localStorage.getItem("sosser_token");
-      const res = await fetch(
-        `http://localhost:5000/api/payments/${paymentId}`,
-        {
-          method: "PUT",
-          headers: {
-            Authorization: `Bearer ${token}`,
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify({ status: newStatus }),
-        }
-      );
-      if (!res.ok)
-        throw new Error(
-          `Failed to ${
-            newStatus === "completed" ? "approve" : "reject"
-          } payment`
-        );
+      await updatePayment(paymentId, newStatus);
       await fetchPayments();
     } catch (err) {
       setError(err.message);
@@ -99,17 +78,7 @@ const ManagePayments = () => {
     if (!window.confirm("Are you sure you want to delete this payment?"))
       return;
     try {
-      const token = localStorage.getItem("sosser_token");
-      const res = await fetch(
-        `http://localhost:5000/api/payments/${paymentId}`,
-        {
-          method: "DELETE",
-          headers: {
-            Authorization: `Bearer ${token}`,
-          },
-        }
-      );
-      if (!res.ok) throw new Error("Failed to delete payment");
+      await deletePayment(paymentId);
       await fetchPayments();
     } catch (err) {
       setError(err.message);
@@ -135,7 +104,7 @@ const ManagePayments = () => {
   };
 
   const handleViewImage = (screenshot) => {
-    setSelectedImage(`http://localhost:5000/${screenshot}`);
+    setSelectedImage(`https://soserunion.com/${screenshot}`);
   };
 
   const closeModal = () => {
@@ -350,11 +319,6 @@ const ManagePayments = () => {
           </div>
         </motion.div>
       )}
-
-      {/* Footer */}
-      <footer className="bg-gray-800 text-white p-6 text-center">
-        <p className="text-sm">&copy; 2025 Sosser App. All rights reserved.</p>
-      </footer>
     </div>
   );
 };

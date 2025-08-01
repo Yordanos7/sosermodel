@@ -16,7 +16,7 @@ import {
 import { useAuth } from "../../context/AuthContext";
 
 const AddAnnouncement = () => {
-  const { getAuthToken } = useAuth();
+  const { getAuthToken, user } = useAuth();
   const [formData, setFormData] = useState({
     title: "",
     content: "",
@@ -72,12 +72,12 @@ const AddAnnouncement = () => {
       const token = getAuthToken();
       if (!token)
         throw new Error("No authentication token found. Please log in.");
-      const res = await fetch("http://localhost:5000/api/announcements", {
+      const res = await fetch("https://soserunion.com/api/announcements", {
         headers: { Authorization: `Bearer ${token}` },
       });
       if (!res.ok) throw new Error("Failed to fetch announcements");
       const data = await res.json();
-      setAnnouncements(data);
+      setAnnouncements(data.announcements || []);
     } catch (err) {
       setError(err.message);
     } finally {
@@ -130,33 +130,33 @@ const AddAnnouncement = () => {
     setIsSubmitting(true);
     setError(null);
 
-    const form = new FormData();
-    form.append("title", formData.title);
-    form.append("content", formData.content);
-    form.append("category", formData.category);
-    form.append("priority", formData.priority);
-    if (formData.publishDate) form.append("publishDate", formData.publishDate);
-    if (formData.expiryDate) form.append("expiryDate", formData.expiryDate);
-    form.append("targetAudience", formData.targetAudience);
-    if (formData.tags) form.append("tags", formData.tags);
-    formData.attachments.forEach((file) => form.append("attachments", file));
+    const { attachments, ...otherData } = formData;
 
     try {
       const token = getAuthToken();
+      if (!token) throw new Error("No authentication token found");
+
       const url = editingAnnouncement
-        ? `http://localhost:5000/api/announcements/${editingAnnouncement.id}`
-        : "http://localhost:5000/api/announcements";
+        ? `https://soserunion.com/api/announcements/${editingAnnouncement.id}`
+        : "https://soserunion.com/api/announcements";
       const method = editingAnnouncement ? "PUT" : "POST";
 
       const response = await fetch(url, {
         method,
-        headers: { Authorization: `Bearer ${token}` },
-        body: form,
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: `Bearer ${token}`,
+        },
+        body: JSON.stringify({
+          ...otherData,
+          postedBy: user.id, // Ensure postedBy is included
+        }),
       });
 
-      const data = await response.json();
-      if (!response.ok)
-        throw new Error(data.message || "Failed to submit announcement");
+      if (!response.ok) {
+        const errorData = await response.json();
+        throw new Error(errorData.message || "Failed to submit announcement");
+      }
 
       setIsSubmitting(false);
       await fetchAnnouncements();
@@ -177,10 +177,13 @@ const AddAnnouncement = () => {
       return;
     try {
       const token = getAuthToken();
-      const res = await fetch(`http://localhost:5000/api/announcements/${id}`, {
-        method: "DELETE",
-        headers: { Authorization: `Bearer ${token}` },
-      });
+      const res = await fetch(
+        `https://soserunion.com/api/announcements/${id}`,
+        {
+          method: "DELETE",
+          headers: { Authorization: `Bearer ${token}` },
+        }
+      );
       if (!res.ok) throw new Error("Failed to delete announcement");
       await fetchAnnouncements();
     } catch (err) {
@@ -208,7 +211,7 @@ const AddAnnouncement = () => {
   };
 
   const handleViewImage = (attachment) => {
-    setSelectedImage(`http://localhost:5000/${attachment}`);
+    setSelectedImage(`https://soserunion.com/${attachment}`);
   };
 
   const closeModal = () => {
@@ -975,8 +978,6 @@ const AddAnnouncement = () => {
             </div>
           </div>
         </motion.div>
-
-        {/* Footer */}
       </div>
     </div>
   );

@@ -134,6 +134,13 @@ const QuickActions = () => {
       link: "/admin/manage-videos",
       color: "from-red-500 to-red-600",
     },
+    {
+      title: "Add Team Member",
+      description: "Add a new staff or team member",
+      icon: UsersIcon,
+      link: "/admin/add-team",
+      color: "from-teal-500 to-teal-600",
+    },
   ];
 
   return (

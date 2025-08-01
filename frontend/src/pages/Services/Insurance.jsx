@@ -9,78 +9,45 @@ import {
   HeartIcon,
 } from "@heroicons/react/24/outline";
 import { useNavigate } from "react-router-dom";
+import { useTranslation } from "react-i18next";
 
 const Insurance = () => {
-  const insuranceServices = [
-    {
-      id: 1,
-      name: "Life Loan Insurance",
-      icon: ScaleIcon,
-      description:
-        "Protection remaining that covers the loan repayment in case of death of either debtor or debtor's husband/wife with funeral service benefit of 1,000 ETB.",
-      coverage: "Loan amount coverage + 1,000 ETB funeral benefit",
-      benefits: ["Financial Protection", "Funeral Service Benefit"],
-    },
-    {
-      id: 2,
-      name: "Saving Led Life Insurance",
-      icon: BanknotesIcon,
-      description:
-        "Protection remaining that provides double the balance of saving in case of death of either saver or saver's husband/wife with funeral service benefit of 500 ETB.",
-      coverage: "2x savings balance + 500 ETB funeral benefit",
-      benefits: ["Enhanced Payout", "Funeral Service Benefit"],
-    },
-  ];
+  const { t } = useTranslation();
+  const navigate = useNavigate();
+
+  const insuranceServices = t("insurance.services.items", {
+    returnObjects: true,
+  }).map((insurance, index) => ({
+    id: index + 1,
+    name: insurance.name,
+    icon: [ScaleIcon, BanknotesIcon][index],
+    description: insurance.description,
+    coverage: insurance.coverage,
+    benefits: insurance.benefits,
+  }));
 
   const insuranceDefinition = {
-    title: "What is Insurance?",
-    description:
-      "Insurance is an agreement or a contract between an individual or business with an insurance company to help provide financial protection and mitigate the risks associated with certain situations or events.",
+    title: t("insurance.definition.title"),
+    description: t("insurance.definition.description"),
     icon: ShieldCheckIcon,
   };
 
-  const claimProcess = [
-    {
-      step: 1,
-      title: "Notification",
-      description: "Inform us immediately about the claim event",
-    },
-    {
-      step: 2,
-      title: "Documentation",
-      description: "Submit required documents (death certificate, policy copy)",
-    },
-    {
-      step: 3,
-      title: "Verification",
-      description: "Our team verifies the claim details",
-    },
-    {
-      step: 4,
-      title: "Benefit Payment",
-      description: "Receive the insurance benefit and funeral service payment",
-    },
-  ];
+  const claimProcess = t("insurance.claim_process.items", {
+    returnObjects: true,
+  }).map((item, index) => ({
+    step: index + 1,
+    title: item.title,
+    description: item.description,
+  }));
 
-  const features = [
-    {
-      icon: UserIcon,
-      title: "Family Protection",
-      description: "Secure your family's financial future",
-    },
-    {
-      icon: HeartIcon,
-      title: "Peace of Mind",
-      description: "Know your loved ones are protected",
-    },
-    {
-      icon: DocumentTextIcon,
-      title: "Simple Process",
-      description: "Easy application and claim procedures",
-    },
-  ];
+  const features = t("insurance.features.items", { returnObjects: true }).map(
+    (feature, index) => ({
+      icon: [UserIcon, HeartIcon, DocumentTextIcon][index],
+      title: feature.title,
+      description: feature.description,
+    })
+  );
 
-  const navigate = useNavigate();
   return (
     <div className="min-h-screen bg-gray-50 pt-20">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
@@ -91,7 +58,7 @@ const Insurance = () => {
           className="text-center mb-16 relative overflow-hidden rounded-xl h-96"
         >
           <div
-            className="absolute inset-0 bg-[url('https://ibanding.com.my/wp-content/uploads/2017/04/Depositphotos_83794884_l-2015-min.jpg')] bg-cover bg-center"
+            className="absolute inset-0 bg-[url('/insurance.png')] bg-cover bg-center"
             style={{
               filter: "brightness(0.7)",
               zIndex: 0,
@@ -99,10 +66,10 @@ const Insurance = () => {
           />
           <div className="relative z-10 py-16 px-4 sm:px-6 lg:px-8">
             <h1 className="text-4xl md:text-5xl font-bold text-white mb-6">
-              Insurance Services
+              {t("insurance.header.title")}
             </h1>
             <p className="text-xl text-white max-w-3xl mx-auto">
-              Financial protection solutions designed for families and borrowers
+              {t("insurance.header.subtitle")}
             </p>
           </div>
         </motion.div>
@@ -149,7 +116,9 @@ const Insurance = () => {
               </div>
 
               <div className="mb-6">
-                <p className="text-sm text-gray-500 mb-1">Coverage Includes:</p>
+                <p className="text-sm text-gray-500 mb-1">
+                  {t("insurance.coverage_label")}
+                </p>
                 <p className="font-semibold text-gray-900">
                   {insurance.coverage}
                 </p>
@@ -159,7 +128,7 @@ const Insurance = () => {
 
               <div className="space-y-2 mb-6">
                 <p className="font-semibold text-gray-900 mb-3">
-                  Key Benefits:
+                  {t("insurance.benefits_label")}
                 </p>
                 {insurance.benefits.map((benefit, idx) => (
                   <div key={idx} className="flex items-center">
@@ -173,7 +142,7 @@ const Insurance = () => {
                 className="w-full bg-gradient-to-r from-blue-600 to-green-600 text-white py-3 rounded-lg hover:from-blue-700 hover:to-green-700 transition-all duration-200"
                 onClick={() => navigate("/get-started")}
               >
-                Apply Now
+                {t("insurance.apply_button")}
               </button>
             </motion.div>
           ))}
@@ -187,7 +156,7 @@ const Insurance = () => {
           className="bg-white rounded-xl shadow-lg p-8 mb-16"
         >
           <h2 className="text-3xl font-bold text-gray-900 mb-8 text-center">
-            Why Choose Our Insurance?
+            {t("insurance.features.title")}
           </h2>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {features.map((feature, index) => (
@@ -212,7 +181,7 @@ const Insurance = () => {
           className="bg-white rounded-xl shadow-lg p-8 mb-16"
         >
           <h2 className="text-3xl font-bold text-gray-900 mb-8 text-center">
-            Claims Process
+            {t("insurance.claim_process.title")}
           </h2>
           <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
             {claimProcess.map((item, index) => (
@@ -237,17 +206,14 @@ const Insurance = () => {
           className="text-center"
         >
           <h2 className="text-2xl font-bold text-gray-900 mb-4">
-            Need Help Choosing?
+            {t("insurance.cta.title")}
           </h2>
-          <p className="text-gray-600 mb-8">
-            Our insurance advisors are ready to help you select the right
-            coverage.
-          </p>
+          <p className="text-gray-600 mb-8">{t("insurance.cta.description")}</p>
           <button
             className="bg-gradient-to-r from-blue-600 to-green-600 text-white px-8 py-3 rounded-full hover:from-blue-700 hover:to-green-700 transition-all duration-200 shadow-lg hover:shadow-xl"
             onClick={() => navigate("/contact/offices")}
           >
-            Get our office
+            {t("insurance.cta.button")}
           </button>
         </motion.div>
       </div>

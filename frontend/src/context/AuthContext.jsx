@@ -1,5 +1,5 @@
 import React, { createContext, useContext, useState, useEffect } from "react";
-import axios from "axios";
+import api from "../lib/axios"; // Import the centralized axios instance
 
 const AuthContext = createContext();
 
@@ -10,18 +10,6 @@ export const useAuth = () => {
   }
   return context;
 };
-
-const api = axios.create({
-  baseURL: "http://localhost:5000", // Match backend port
-});
-
-api.interceptors.request.use((config) => {
-  const token = localStorage.getItem("sosser_token");
-  if (token) {
-    config.headers.Authorization = `Bearer ${token}`;
-  }
-  return config;
-});
 
 export const AuthProvider = ({ children }) => {
   const [user, setUser] = useState(null);
@@ -36,11 +24,12 @@ export const AuthProvider = ({ children }) => {
 
       if (storedToken && storedUser) {
         try {
-          const userData = JSON.parse(storedUser);
-          const response = await api.post("/api/auth/verify");
+          const response = await api.post("/auth/verify");
 
           if (response.data.success) {
-            setUser(userData);
+            const freshUser = response.data.user;
+            localStorage.setItem("sosser_user", JSON.stringify(freshUser)); // Update localStorage
+            setUser(freshUser);
           } else {
             localStorage.removeItem("sosser_token");
             localStorage.removeItem("sosser_user");
@@ -65,7 +54,7 @@ export const AuthProvider = ({ children }) => {
     setLoading(true);
     setError(null);
     try {
-      const response = await api.post("/api/auth/login", {
+      const response = await api.post("/auth/login", {
         email,
         password,
       });
@@ -100,7 +89,7 @@ export const AuthProvider = ({ children }) => {
     setLoading(true);
     setError(null);
     try {
-      const response = await api.post("/api/auth/register", userData);
+      const response = await api.post("/auth/register", userData);
 
       if (response.data.success) {
         const { token, user } = response.data;

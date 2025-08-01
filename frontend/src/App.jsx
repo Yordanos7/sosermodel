@@ -53,147 +53,169 @@ import ManagePayments from "./pages/Admin/ManagePayments";
 import ManageTestimonials from "./pages/Admin/ManageTestimonials";
 import ManageDocuments from "./pages/Admin/ManageDocuments";
 import ManageComments from "./pages/Admin/ManageComments";
+import AddTeam from "./pages/Admin/AddTeam";
 
 function App() {
   return (
-    <AuthProvider>
-      <RoleProvider>
-        <Router>
-          <div className="min-h-screen bg-gray-50 flex flex-col">
-            <Navbar />
-            <main className="flex-grow">
-              <Routes>
-                <Route path="/" element={<Home />} />
-                <Route path="/get-started" element={<GetStarted />} />
-                <Route path="/payment" element={<Payment />} />
-                <Route path="/login" element={<Login />} />
+    <RoleProvider>
+      <Router>
+        <div className="min-h-screen bg-gray-50 flex flex-col">
+          <Navbar />
+          <main className="flex-grow">
+            <Routes>
+              <Route path="/" element={<Home />} />
+              <Route path="/get-started" element={<GetStarted />} />
+              <Route
+                path="/payment"
+                element={
+                  <ProtectedRoute role="user">
+                    <Payment />
+                  </ProtectedRoute>
+                }
+              />
+              <Route path="/login" element={<Login />} />
 
-                {/* About Routes */}
-                <Route path="/about/team" element={<Team />} />
-                <Route path="/about/mission" element={<Mission />} />
-                <Route path="/about/partners" element={<Partners />} />
-                <Route path="/all-staff" element={<Staff />} />
+              {/* About Routes */}
+              <Route path="/about/team" element={<Team />} />
+              <Route path="/about/mission" element={<Mission />} />
+              <Route path="/about/partners" element={<Partners />} />
+              <Route path="/all-staff" element={<Staff />} />
 
-                {/* Services Routes */}
-                <Route path="/services/savings" element={<Savings />} />
-                <Route path="/services/loans" element={<Loans />} />
-                <Route path="/services/insurance" element={<Insurance />} />
-                <Route path="/services/digital" element={<Digital />} />
+              {/* Services Routes */}
+              <Route path="/services/savings" element={<Savings />} />
+              <Route path="/services/loans" element={<Loans />} />
+              <Route path="/services/insurance" element={<Insurance />} />
+              <Route path="/services/digital" element={<Digital />} />
 
-                {/* News Routes */}
-                <Route path="/news/announcements" element={<Announcements />} />
-                <Route path="/news/events" element={<Events />} />
-                <Route path="/news/vacancies" element={<Vacancies />} />
+              {/* News Routes */}
+              <Route path="/news/announcements" element={<Announcements />} />
+              <Route path="/news/events" element={<Events />} />
+              <Route path="/news/vacancies" element={<Vacancies />} />
 
-                {/* Testimonials Routes */}
-                <Route path="/testimonials/documents" element={<Documents />} />
-                <Route path="/testimonials/success" element={<Success />} />
+              {/* Testimonials Routes */}
+              <Route path="/testimonials/documents" element={<Documents />} />
+              <Route path="/testimonials/success" element={<Success />} />
 
-                {/* Media Routes */}
-                <Route path="/media/gallery" element={<Gallery />} />
-                <Route path="/media/videos" element={<Videos />} />
+              {/* Media Routes */}
+              <Route path="/media/gallery" element={<Gallery />} />
+              <Route path="/media/videos" element={<Videos />} />
 
-                {/* Contact Routes */}
-                <Route path="/contact/offices" element={<Offices />} />
-                <Route path="/loan-calculator" element={<LoanCalculator />} />
+              {/* Contact Routes */}
+              <Route path="/contact/offices" element={<Offices />} />
+              <Route path="/loan-calculator" element={<LoanCalculator />} />
 
-                {/* Admin Routes - Protected */}
-                <Route
-                  path="/admin/dashboard"
-                  element={
-                    //  <ProtectedRoute role="admin">
-                    <AdminDashboard />
-                    //  </ProtectedRoute>
-                  }
-                />
-                <Route
-                  path="/admin/add-announcement"
-                  element={
-                    //  <ProtectedRoute role="admin">
-                    <AddAnnouncement />
-                    //  </ProtectedRoute>
-                  }
-                />
-                <Route
-                  path="/admin/add-event"
-                  element={
-                    //   <ProtectedRoute role="admin">
-                    <AddEvent />
-                    //   </ProtectedRoute>
-                  }
-                />
-                <Route
-                  path="/admin/add-vacancy"
-                  element={
-                    // <ProtectedRoute role="admin">
-                    <AddVacancy />
-                    //  </ProtectedRoute>
-                  }
-                />
+              {/* Admin Routes - Protected */}
+              <Route
+                path="/admin/dashboard"
+                element={
+                  //  <ProtectedRoute role="admin">
+                  <AdminDashboard />
+                  //  </ProtectedRoute>
+                }
+              />
+              <Route
+                path="/admin/add-announcement"
+                element={
+                  //  <ProtectedRoute role="admin">
+                  <AddAnnouncement />
+                  //  </ProtectedRoute>
+                }
+              />
+              <Route
+                path="/admin/add-event"
+                element={
+                  //   <ProtectedRoute role="admin">
+                  <AddEvent />
+                  //   </ProtectedRoute>
+                }
+              />
+              <Route
+                path="/admin/add-vacancy"
+                element={
+                  // <ProtectedRoute role="admin">
+                  <AddVacancy />
+                  //  </ProtectedRoute>
+                }
+              />
+              <Route
+                path="/admin/add-vacancy/:id"
+                element={
+                  // <ProtectedRoute role="admin">
+                  <AddVacancy />
+                  //  </ProtectedRoute>
+                }
+              />
 
-                <Route
-                  path="/admin/manage-gallery"
-                  element={
-                    //   <ProtectedRoute role="admin">
-                    <ManageGallery />
-                    //  </ProtectedRoute>
-                  }
-                />
-                <Route
-                  path="/admin/manage-videos"
-                  element={
-                    //   <ProtectedRoute role="admin">
-                    <ManageVideos />
-                    //  </ProtectedRoute>
-                  }
-                />
-                <Route
-                  path="/admin/users"
-                  element={
-                    //  <ProtectedRoute role="admin">
-                    <Users />
-                    // </ProtectedRoute>
-                  }
-                />
-                <Route
-                  path="/admin/payments"
-                  element={
-                    //  <ProtectedRoute role="admin">
-                    <ManagePayments />
-                    // </ProtectedRoute>
-                  }
-                />
-                <Route
-                  path="/admin/manage-testimonials"
-                  element={
-                    //  <ProtectedRoute role="admin">
-                    <ManageTestimonials />
-                    // </ProtectedRoute>
-                  }
-                />
-                <Route
-                  path="/admin/manage-documents"
-                  element={
-                    //  <ProtectedRoute role="admin">
-                    <ManageDocuments />
-                    // </ProtectedRoute>
-                  }
-                />
-                <Route
-                  path="/admin/comments"
-                  element={
-                    //  <ProtectedRoute role="admin">
-                    <ManageComments />
-                    // </ProtectedRoute>
-                  }
-                />
-              </Routes>
-            </main>
-            <Footer />
-          </div>
-        </Router>
-      </RoleProvider>
-    </AuthProvider>
+              <Route
+                path="/admin/manage-gallery"
+                element={
+                  //   <ProtectedRoute role="admin">
+                  <ManageGallery />
+                  //  </ProtectedRoute>
+                }
+              />
+              <Route
+                path="/admin/manage-videos"
+                element={
+                  //   <ProtectedRoute role="admin">
+                  <ManageVideos />
+                  //  </ProtectedRoute>
+                }
+              />
+              <Route
+                path="/admin/users"
+                element={
+                  //  <ProtectedRoute role="admin">
+                  <Users />
+                  // </ProtectedRoute>
+                }
+              />
+              <Route
+                path="/admin/payments"
+                element={
+                  //  <ProtectedRoute role="admin">
+                  <ManagePayments />
+                  // </ProtectedRoute>
+                }
+              />
+              <Route
+                path="/admin/manage-testimonials"
+                element={
+                  //  <ProtectedRoute role="admin">
+                  <ManageTestimonials />
+                  // </ProtectedRoute>
+                }
+              />
+              <Route
+                path="/admin/manage-documents"
+                element={
+                  //  <ProtectedRoute role="admin">
+                  <ManageDocuments />
+                  // </ProtectedRoute>
+                }
+              />
+              <Route
+                path="/admin/comments"
+                element={
+                  //  <ProtectedRoute role="admin">
+                  <ManageComments />
+                  // </ProtectedRoute>
+                }
+              />
+              <Route
+                path="/admin/add-team"
+                element={
+                  //  <ProtectedRoute role="admin">
+                  <AddTeam />
+                  // </ProtectedRoute>
+                }
+              />
+            </Routes>
+          </main>
+          <Footer />
+        </div>
+      </Router>
+    </RoleProvider>
   );
 }
 

@@ -2,7 +2,6 @@ import React, { useState, useEffect, Suspense, useRef } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
 import { useTranslation } from "react-i18next";
-
 import {
   ChevronDownIcon,
   Bars3Icon,
@@ -16,12 +15,11 @@ import {
   PhoneIcon,
   CreditCardIcon,
   RocketLaunchIcon,
-  ChevronRightIcon,
 } from "@heroicons/react/24/outline";
 import { useAuth } from "../context/AuthContext";
 
 const Navbar = () => {
-  const { user } = useAuth();
+  const { user, logout } = useAuth();
   const { t, i18n } = useTranslation();
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
@@ -138,23 +136,15 @@ const Navbar = () => {
 
   return (
     <>
-      {/* Main Navbar */}
       <motion.nav
         ref={navbarRef}
         initial={{ y: -100 }}
-        animate={{
-          y: 0,
-        }}
-        transition={{
-          type: "spring",
-          stiffness: 300,
-          damping: 30,
-        }}
-        className={`fixed w-full z-50 transition-all duration-300 bg-[#90EE90] shadow-lg`}
+        animate={{ y: 0 }}
+        transition={{ type: "spring", stiffness: 300, damping: 30 }}
+        className={`fixed w-full z-50 transition-all duration-300 bg-[#90EE90] shadow-lg `}
       >
         <div className="w-full mx-auto">
           <div className="flex h-16 lg:h-20 items-center">
-            {/* Logo and Language Switcher */}
             <div className="flex-shrink-0 flex items-center pl-4 lg:pl-6">
               <Link to="/" className="flex items-center space-x-2">
                 <img
@@ -163,15 +153,15 @@ const Navbar = () => {
                   className="w-7 h-7 lg:w-10 lg:h-10 rounded-full shadow-lg hover:shadow-xl transition-shadow duration-200 transform hover:scale-105"
                 />
                 <span className="text-sm lg:text-base font-bold text-gray-800 whitespace-nowrap hover:text-orange-500/70 hover:delay-75">
-                  <span className="block">Soser Saving & Credit</span>
+                  <span className="block">
+                    {t("navbar.logo")} Saving & Credit
+                  </span>
                   <span className="block">Cooperative Union LTD</span>
                 </span>
               </Link>
-
-              {/* Language Switcher (Desktop) */}
               <div className="hidden lg:block relative ml-4">
                 <button
-                  className="flex items-center space-x-1 px-3 py-2 text-gray-700 hover:text-amber-500  transition-colors duration-200"
+                  className="flex items-center space-x-1 px-3 py-2 text-gray-700 hover:text-amber-500 transition-colors duration-200"
                   onClick={() =>
                     setActiveDropdown(
                       activeDropdown === "language" ? null : "language"
@@ -213,8 +203,6 @@ const Navbar = () => {
                 </AnimatePresence>
               </div>
             </div>
-
-            {/* Desktop Navigation */}
             <div className="hidden lg:flex flex-1 items-center justify-between text-black h-full px-6">
               <div className="flex items-center space-x-1">
                 {navItems.map((item) => (
@@ -225,7 +213,7 @@ const Navbar = () => {
                         onMouseEnter={() => setActiveDropdown(item.name)}
                         onMouseLeave={() => setActiveDropdown(null)}
                       >
-                        <button className="flex items-center px-3 py-2 text-gray-700 hover:text-amber-500  transition-colors duration-200 rounded">
+                        <button className="flex items-center px-3 py-2 text-gray-700 hover:text-amber-500 transition-colors duration-200 rounded">
                           <item.icon className="w-4 h-4" />
                           <span className="font-medium -mr-1">{item.name}</span>
                           <ChevronDownIcon
@@ -234,7 +222,6 @@ const Navbar = () => {
                             }`}
                           />
                         </button>
-
                         <AnimatePresence>
                           {activeDropdown === item.name && (
                             <motion.div
@@ -248,7 +235,7 @@ const Navbar = () => {
                                 <Link
                                   key={subItem.name}
                                   to={subItem.path}
-                                  className="block px-4 py-2 text-sm text-gray-700 hover:bg-blue-50 hover:text-amber-500  transition-colors duration-200"
+                                  className="block px-4 py-2 text-sm text-gray-700 hover:bg-blue-50 hover:text-amber-500 transition-colors duration-200"
                                 >
                                   {subItem.name}
                                 </Link>
@@ -263,7 +250,7 @@ const Navbar = () => {
                         className={`flex items-center space-x-1 px-3 py-2 transition-colors duration-200 rounded ${
                           location.pathname === item.path
                             ? "text-blue-600 bg-blue-50"
-                            : "text-gray-700 hover:text-amber-500 "
+                            : "text-gray-700 hover:text-amber-500"
                         }`}
                       >
                         <item.icon className="w-4 h-4" />
@@ -273,28 +260,24 @@ const Navbar = () => {
                   </div>
                 ))}
               </div>
-
-              {/* Get Started Button */}
               {user ? (
-                <Link
-                  to="/login"
-                  className="ml-4 bg-gradient-to-r from-blue-600 to-green-600 text-white px-6 py-2 rounded-full hover:text-amber-500  hover:to-green-700 transition-all duration-200 flex items-center space-x-2 shadow-lg hover:shadow-xl transform hover:-translate-y-0.5"
+                <button
+                  onClick={logout}
+                  className="ml-4 bg-gradient-to-r from-red-600 to-orange-600 text-white px-6 py-2 rounded-full hover:text-amber-500 hover:to-orange-700 transition-all duration-200 flex items-center space-x-2 shadow-lg hover:shadow-xl transform hover:-translate-y-0.5"
                 >
                   <RocketLaunchIcon className="w-4 h-4" />
-                  <span className="font-medium">{t("navbar.login")}</span>
-                </Link>
+                  <span className="font-medium">Logout</span>
+                </button>
               ) : (
                 <Link
                   to="/get-started"
-                  className="ml-4 bg-gradient-to-r from-blue-600 to-green-600 text-white px-6 py-2 rounded-full hover:text-amber-500  hover:to-green-700 transition-all duration-200 flex items-center space-x-2 shadow-lg hover:shadow-xl transform hover:-translate-y-0.5"
+                  className="ml-4 bg-gradient-to-r from-blue-600 to-green-600 text-white px-6 py-2 rounded-full hover:text-amber-500 hover:to-green-700 transition-all duration-200 flex items-center space-x-2 shadow-lg hover:shadow-xl transform hover:-translate-y-0.5"
                 >
                   <RocketLaunchIcon className="w-4 h-4" />
                   <span className="font-medium">{t("navbar.get_started")}</span>
                 </Link>
               )}
             </div>
-
-            {/* Mobile menu button */}
             <div className="flex-1 flex justify-end pr-4 lg:hidden">
               <button
                 onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
@@ -308,8 +291,6 @@ const Navbar = () => {
               </button>
             </div>
           </div>
-
-          {/* Mobile Navigation */}
           <AnimatePresence>
             {isMobileMenuOpen && (
               <motion.div
@@ -319,7 +300,6 @@ const Navbar = () => {
                 className="lg:hidden bg-[#90EE90] border-t border-gray-100"
               >
                 <div className="px-2 pt-2 pb-3 space-y-1">
-                  {/* Language Switcher (Mobile) */}
                   <div className="px-3 py-2">
                     <div className="flex space-x-4">
                       <button
@@ -344,7 +324,6 @@ const Navbar = () => {
                       </button>
                     </div>
                   </div>
-
                   {navItems.map((item) => (
                     <div key={item.name}>
                       {item.dropdown ? (
@@ -401,16 +380,17 @@ const Navbar = () => {
                       )}
                     </div>
                   ))}
-
                   {user ? (
-                    <Link
-                      to="/login"
-                      onClick={() => setIsMobileMenuOpen(false)}
-                      className="flex items-center space-x-2 px-3 py-2 bg-gradient-to-r from-blue-600 to-green-600 text-white rounded-md mx-3 mt-4"
+                    <button
+                      onClick={() => {
+                        logout();
+                        setIsMobileMenuOpen(false);
+                      }}
+                      className="flex items-center space-x-2 px-3 py-2 bg-gradient-to-r from-red-600 to-orange-600 text-white rounded-md mx-3 mt-4 w-full"
                     >
                       <RocketLaunchIcon className="w-5 h-5" />
-                      <span>{t("navbar.login")}</span>
-                    </Link>
+                      <span>Logout</span>
+                    </button>
                   ) : (
                     <Link
                       to="/get-started"

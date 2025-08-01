@@ -30,7 +30,7 @@ const Home = () => {
   const [showChat, setShowChat] = useState(false);
   const fullText = t("home.hero.title_typed");
 
-  const heroImages = ["./1.png", "./2.png", "./3.png", "./6.png"];
+  const heroImages = ["./1.png", "./office.JPG", "./3.png", "./6.png"];
 
   useEffect(() => {
     const timer = setInterval(() => {
@@ -91,7 +91,7 @@ const Home = () => {
     const fetchAnnouncements = async () => {
       try {
         const response = await getAnnouncements();
-        setAnnouncements(response);
+        setAnnouncements(response.announcements || []);
       } catch (error) {
         console.error("Failed to fetch announcements:", error);
       }
@@ -100,7 +100,7 @@ const Home = () => {
     const fetchEvents = async () => {
       try {
         const response = await getEvents();
-        setEvents(response);
+        setEvents(response.events || []);
       } catch (error) {
         console.error("Failed to fetch events:", error);
       }
@@ -321,20 +321,7 @@ const Home = () => {
               {t("home.about.title")}
             </h2>
             <p className="text-sm sm:text-base md:text-lg text-gray-600 mb-4 sm:mb-6 leading-relaxed">
-              Soser Saving & Credit Conditional Union LTD is a membership-based
-              financial cooperative dedicated to providing innovative savings,
-              loan, and insurance services established for local development. We
-              are committed to digital transformation and inclusive banking,
-              empowering our members across the Amhara Region to achieve
-              financial prosperity and resilience. The name Soser is inspired by
-              Mount Soser, a prominent local landmark located at the border
-              between Dangila and Fagita Lekoma woredas. Soser Saving & Credit
-              Cooperative Union LTD was officially established on March 24, 2008
-              (G.C) and certified by the ANRS Cooperative Agency under
-              registration code 02/1729 on June 19, 2008 (G.C). The union was
-              founded by 23 primary cooperative societies, with an initial
-              paid-up capital of 666,000.00 ETB and a total membership of 28,194
-              individuals—23,775 male and 4,419 female members.
+              {t("home.about.description")}
             </p>
             <Link
               to="/about/mission"
@@ -397,11 +384,9 @@ const Home = () => {
                   >
                     <span>
                       {t(
-                        `home.services.items.${
-                          Object.keys(
-                            t("home.services.items", { returnObjects: true })
-                          )[index]
-                        }.link`
+                        `home.services.items.${service.link
+                          .split("/")
+                          .pop()}.link`
                       )}
                     </span>
                     <ArrowRightIcon className="w-3 sm:w-4 h-3 sm:h-4" />
@@ -443,7 +428,7 @@ const Home = () => {
             className="mt-4 sm:mt-8 md:mt-12 lg:mt-16 text-center"
           >
             <h3 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-bold text-gray-800 mb-2 sm:mb-4">
-              Saving trend
+              {t("home.saving_trend.title")}
             </h3>
             <div className="flex flex-col items-center justify-center mb-4 sm:mb-8 md:mb-12 lg:mb-16">
               <div className="text-center mb-2 sm:mb-4">
@@ -463,7 +448,7 @@ const Home = () => {
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 sm:gap-4 w-full max-w-xs sm:max-w-sm md:max-w-md lg:max-w-2xl">
                 <div className="text-center p-2 sm:p-4 border border-gray-200 rounded-md sm:rounded-lg">
                   <h4 className="text-sm sm:text-base md:text-lg font-semibold text-gray-700 mb-1 sm:mb-2">
-                    Regular
+                    {t("home.saving_trend.regular_saving")}
                   </h4>
                   <motion.div
                     initial={{ x: -100, opacity: 0 }}
@@ -480,7 +465,7 @@ const Home = () => {
 
                 <div className="text-center p-2 sm:p-4 border border-gray-200 rounded-md sm:rounded-lg">
                   <h4 className="text-sm sm:text-base md:text-lg font-semibold text-gray-700 mb-1 sm:mb-2">
-                    Voluntary
+                    {t("home.saving_trend.voluntary_saving")}
                   </h4>
                   <motion.div
                     initial={{ x: -100, opacity: 0 }}
@@ -497,7 +482,7 @@ const Home = () => {
 
                 <div className="text-center p-2 sm:p-4 border border-gray-200 rounded-md sm:rounded-lg">
                   <h4 className="text-sm sm:text-base md:text-lg font-semibold text-gray-700 mb-1 sm:mb-2">
-                    Contractual
+                    {t("home.saving_trend.contractual_saving")}
                   </h4>
                   <motion.div
                     initial={{ x: 100, opacity: 0 }}
@@ -514,7 +499,7 @@ const Home = () => {
 
                 <div className="text-center p-2 sm:p-4 border border-gray-200 rounded-md sm:rounded-lg">
                   <h4 className="text-sm sm:text-base md:text-lg font-semibold text-gray-700 mb-1 sm:mb-2">
-                    Current
+                    {t("home.saving_trend.current_saving")}
                   </h4>
                   <motion.div
                     initial={{ x: 100, opacity: 0 }}
@@ -540,7 +525,7 @@ const Home = () => {
             className="text-center mb-4 sm:mb-8 md:mb-12"
           >
             <h2 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-bold text-gray-800 mb-2 sm:mb-4">
-              {t("Loan Disbursment")}
+              {t("home.loan_disbursement.title")}
             </h2>
           </motion.div>
 
@@ -553,32 +538,6 @@ const Home = () => {
               </div>
               <p className="text-gray-500 mt-1 sm:mt-2">ETB</p>
             </div>
-
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 sm:gap-4 w-full max-w-xs sm:max-w-sm md:max-w-md lg:max-w-2xl">
-              <div className="text-center p-2 sm:p-4 border border-gray-200 rounded-md sm:rounded-lg">
-                <h4 className="text-sm sm:text-base md:text-lg font-semibold text-gray-700 mb-1 sm:mb-2">
-                  Short Term Loan
-                </h4>
-                <div className="text-xl sm:text-2xl md:text-3xl font-bold text-green-600">
-                  <span ref={shortTermLoanRef}>
-                    {formatNumber(shortTermLoanCount, false)}
-                  </span>
-                </div>
-                <p className="text-gray-500">ETB</p>
-              </div>
-
-              <div className="text-center p-2 sm:p-4 border border-gray-200 rounded-md sm:rounded-lg">
-                <h4 className="text-sm sm:text-base md:text-lg font-semibold text-gray-700 mb-1 sm:mb-2">
-                  Medium Term Loan
-                </h4>
-                <div className="text-xl sm:text-2xl md:text-3xl font-bold text-purple-600">
-                  <span ref={mediumTermLoanRef}>
-                    {formatNumber(mediumTermLoanCount, false)}
-                  </span>
-                </div>
-                <p className="text-gray-500">ETB</p>
-              </div>
-            </div>
           </div>
 
           <motion.div
@@ -590,30 +549,28 @@ const Home = () => {
           >
             <div className="overflow-hidden shadow-md sm:shadow-xl">
               <img
-                src="/2.png"
-                alt="Soser Main Office Building"
+                src="/head.JPG"
+                alt={t("home.headquarters.title")}
                 className="w-full h-auto object-cover"
               />
             </div>
             <div className="bg-blue-50 p-2 sm:p-4 md:p-6 lg:p-8 rounded-md sm:rounded-xl">
               <h3 className="text-xl sm:text-2xl md:text-3xl font-bold text-gray-800 mb-2 sm:mb-4">
-                Our Headquarters
+                {t("home.headquarters.title")}
               </h3>
               <p className="text-sm sm:text-base md:text-lg text-gray-600 mb-2 sm:mb-4 md:mb-6 leading-relaxed">
-                Our headquarters, located in Dangla town, serves as the central
-                hub for Soser Saving & Credit Cooperative Union LTD's
-                operations. This facility supports our administrative functions
-                and member services, ensuring we deliver accessible and reliable
-                financial solutions to our members across seven districts. It
-                reflects our commitment to fostering financial inclusion and
-                empowering our community through straightforward and effective
-                cooperative services.
+                {t("home.headquarters.description")}
               </p>
+              <img
+                src="/2.png"
+                alt="Headquarters Archive"
+                className="w-full h-auto object-cover mt-4 rounded-md sm:rounded-lg shadow-md"
+              />
               <Link
                 to="/contact/offices"
-                className="inline-flex items-center space-x-1 sm:space-x-2 text-blue-600 hover:text-blue-700 font-semibold"
+                className="inline-flex items-center space-x-1 sm:space-x-2 text-blue-600 hover:text-blue-700 font-semibold mt-4"
               >
-                <span>Visit Our Locations</span>
+                <span>{t("home.headquarters.link")}</span>
                 <ArrowRightIcon className="w-3 sm:w-4 h-3 sm:h-4" />
               </Link>
             </div>
@@ -732,8 +689,7 @@ const Home = () => {
             className="whitespace-nowrap"
           >
             <p className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-bold text-orange-600 inline-block">
-              Saving is a symbol of progress. Save for growth, borrow with
-              purpose, and repay on time.
+              {t("home.cta.description")}
             </p>
           </motion.div>
         </div>

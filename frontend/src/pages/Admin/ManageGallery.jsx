@@ -205,7 +205,7 @@ const ManageGallery = () => {
               whileHover={{ scale: 1.03 }}
             >
               <img
-                src={`http://localhost:5000/${item.url}`}
+                src={`https://soserunion.com/${item.url}`}
                 alt={item.title}
                 className="w-full h-48 object-cover"
               />
@@ -216,7 +216,7 @@ const ManageGallery = () => {
                 </p>
                 <div className="mt-4 flex gap-2">
                   <a
-                    href={`http://localhost:5000/${item.url}`}
+                    href={`https://soserunion.com/${item.url}`}
                     target="_blank"
                     rel="noopener noreferrer"
                     className="inline-flex items-center px-2 py-1 text-xs bg-blue-100 text-blue-700 rounded hover:bg-blue-200"

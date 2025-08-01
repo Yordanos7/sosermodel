@@ -149,7 +149,7 @@ const ManageTestimonials = () => {
               className="bg-white rounded-xl shadow-lg p-6"
             >
               <img
-                src={`http://localhost:5000/${testimonial.image}`}
+                src={`https://soserunion.com/${testimonial.image}`}
                 alt={testimonial.name}
                 className="w-full h-32 object-cover rounded-md mb-4"
               />
