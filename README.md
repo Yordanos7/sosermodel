@@ -1,0 +1,1 @@
+i have create the admin like make choose the role and then delete the way the user choose the the role i have put this if i forgot how i do it if i get other better way i will change it but for now i have made it like this and finish and provide the project to soser LTD.
