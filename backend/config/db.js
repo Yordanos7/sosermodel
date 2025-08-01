@@ -1,17 +1,47 @@
 const Sequelize = require("sequelize");
-const dotenv = require("dotenv");
-
-dotenv.config();
 
 const sequelize = new Sequelize(
-  process.env.DB_NAME,
-  process.env.DB_USER,
-  process.env.DB_PASSWORD,
+  "soseruwv_soserapp",
+  "soseruwv_usersoser",
+  "rFU^k.p_5@Bf5n=k",
   {
-    host: process.env.DB_HOST,
+    host: "localhost",
     dialect: "mysql",
-    logging: false, // search for this line of code
+    port: 3306, // Explicitly specify MySQL port
+    logging: console.log, // Enable logging for debugging
+    dialectOptions: {
+      connectTimeout: 30000, // 30 seconds timeout
+    },
+    retry: {
+      match: [
+        /ETIMEDOUT/,
+        /EHOSTUNREACH/,
+        /ECONNREFUSED/,
+        /ECONNRESET/,
+        /EPIPE/,
+      ],
+      max: 5, // Retry up to 5 times
+      timeout: 10000, // Wait 10 seconds between retries
+    },
+    pool: {
+      max: 5, // Maximum number of connections in pool
+      min: 0,
+      acquire: 30000,
+      idle: 10000,
+    },
   }
 );
+
+// Test the connection
+async function testConnection() {
+  try {
+    await sequelize.authenticate();
+    console.log("Database connection successful");
+  } catch (error) {
+    console.error("Unable to connect to the database:", error);
+  }
+}
+
+testConnection();
 
 module.exports = sequelize;

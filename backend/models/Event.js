@@ -6,6 +6,8 @@ const Event = sequelize.define(
   {
     id: { type: DataTypes.INTEGER, autoIncrement: true, primaryKey: true },
     title: { type: DataTypes.STRING(200), allowNull: false },
+    image: { type: DataTypes.STRING, allowNull: true },
+    featured: { type: DataTypes.BOOLEAN, defaultValue: false },
     description: { type: DataTypes.TEXT, allowNull: false },
     eventType: { type: DataTypes.STRING(50), allowNull: false },
     date: { type: DataTypes.DATEONLY, allowNull: false },
@@ -23,9 +25,9 @@ const Event = sequelize.define(
     requirements: { type: DataTypes.TEXT, allowNull: true },
     createdBy: {
       type: DataTypes.INTEGER,
-      allowNull: false,
+      allowNull: true,
       references: {
-        model: "Users",
+        model: "users",
         key: "id",
       },
     },

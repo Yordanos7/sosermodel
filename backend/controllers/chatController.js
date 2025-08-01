@@ -9,17 +9,12 @@ Here are facts Stuart facts you know:
 - Anyone can join by visiting the office or filling out an online form.
 - The Main office is located in Dangila, or you can visit the  branch.
 - Contact number: +251582211539
-- Office hours: They work from 2:00 AM to 11:00 PM in local time.
+- Office hours: They work from 2:00 AM to 11:30 PM in local time.
 
-- Soser operates in seven districts: Dangila Woreda, Dangila Town, Fagita Lekoma Woreda, Addiskidam Town, Jawi Woreda, Fendeka Town, and Injibara Town administrations.
+- Soser operates in  Awi zone Amahara Region,: Dangila Woreda, Dangila Town, Fagita Lekoma Woreda, Addiskidam Town, Jawi Woreda, Fendeka Town, and Injibara Town administrations.
 - Vision: Becoming a leading cooperative bank that is continuously accessible, preferred, and popular.
 - Mission: Addressing the social and economic issues faced by members and their communities by offering financial products and services that members can manage independently and that are not overly complicated to access.
 - Main purposes: Providing savings, credit, training, and technical support to cooperative societies, and fostering cooperation among members through horizontal integrations.
-- Savings types: 
-  - Compulsory Saving: 7% daily accrued interest, non-withdrawable without purpose.
-  - Voluntary Saving: 7% annual interest, easy to save and withdraw.
-  - Contractual Saving: Up to 10% annual interest based on agreement.
-  - Current Account: Non-interest-bearing, easy to withdraw.
 - Insurance services: 
   - Life Loan Insurance: Covers loan repayment in case of debtor’s or spouse’s death with 1,000 birr funeral service.
   - Saving Led Life Insurance: Provides double the savings balance in case of saver’s or spouse’s death with 500 birr funeral service.

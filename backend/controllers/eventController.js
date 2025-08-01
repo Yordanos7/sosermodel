@@ -1,4 +1,4 @@
-const Event = require("../models/Event");
+const { Event, User } = require("../models");
 
 const createEvent = async (req, res) => {
   try {
@@ -19,10 +19,13 @@ const createEvent = async (req, res) => {
       contactPhone,
       tags,
       requirements,
+      featured,
     } = req.body;
+    const image = req.file ? req.file.path : null;
 
     const event = await Event.create({
       title,
+      featured,
       description,
       eventType,
       date,
@@ -39,6 +42,7 @@ const createEvent = async (req, res) => {
       tags,
       requirements,
       createdBy: req.user.id,
+      image,
     });
 
     res.status(201).json({
@@ -56,10 +60,17 @@ const createEvent = async (req, res) => {
 const getEvents = async (req, res) => {
   try {
     const events = await Event.findAll({
+      include: [
+        {
+          model: User,
+          as: "user",
+          attributes: ["id", "name", "email"],
+        },
+      ],
       order: [["date", "DESC"]],
     });
 
-    res.status(200).json(events);
+    res.status(200).json({ events: events });
   } catch (error) {
     console.error(error);
     res.status(500).json({
@@ -89,6 +100,7 @@ const updateEvent = async (req, res) => {
       contactPhone,
       tags,
       requirements,
+      featured,
     } = req.body;
 
     const event = await Event.findByPk(id);
@@ -99,6 +111,7 @@ const updateEvent = async (req, res) => {
 
     event.title = title || event.title;
     event.description = description || event.description;
+    event.featured = featured;
     event.eventType = eventType || event.eventType;
     event.date = date || event.date;
     event.startTime = startTime || event.startTime;
@@ -115,6 +128,9 @@ const updateEvent = async (req, res) => {
     event.contactPhone = contactPhone || event.contactPhone;
     event.tags = tags || event.tags;
     event.requirements = requirements || event.requirements;
+    if (req.file) {
+      event.image = req.file.path;
+    }
 
     await event.save();
 

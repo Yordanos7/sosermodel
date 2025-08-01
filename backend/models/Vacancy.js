@@ -14,7 +14,8 @@ const Vacancy = sequelize.define(
         "part-time",
         "contract",
         "temporary",
-        "internship"
+        "internship",
+        "other"
       ),
       allowNull: false,
     },
@@ -39,11 +40,12 @@ const Vacancy = sequelize.define(
     contactPhone: { type: DataTypes.STRING(30), allowNull: true },
     hiringManager: { type: DataTypes.STRING(100), allowNull: true },
     urgent: { type: DataTypes.BOOLEAN, defaultValue: false },
+    image: { type: DataTypes.STRING, allowNull: true },
     postedBy: {
       type: DataTypes.INTEGER,
-      allowNull: false,
+      allowNull: true,
       references: {
-        model: "Users", // 'Users' is the table name for the User model
+        model: "users",
         key: "id",
       },
     },

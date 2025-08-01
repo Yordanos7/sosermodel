@@ -32,6 +32,7 @@ const createDocument = async (req, res) => {
       category,
       featured,
       filePath,
+      uploadedBy: req.user.id,
     });
 
     res.status(201).json({

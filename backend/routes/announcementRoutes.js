@@ -6,24 +6,12 @@ const {
   getAnnouncements,
   updateAnnouncement,
   deleteAnnouncement,
-  upload,
 } = require("../controllers/announcementController");
 const router = express.Router();
 
-router.post(
-  "/",
-  authMiddleware,
-  upload.array("attachments", 5),
-  createAnnouncement
-);
+router.post("/", authMiddleware, roleMiddleware("admin"), createAnnouncement);
 router.get("/", getAnnouncements);
-router.put(
-  "/:id",
-  authMiddleware,
-  roleMiddleware("admin"),
-  upload.array("attachments", 5),
-  updateAnnouncement
-);
+router.put("/:id", authMiddleware, roleMiddleware("admin"), updateAnnouncement);
 router.delete(
   "/:id",
   authMiddleware,

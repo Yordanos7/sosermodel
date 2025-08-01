@@ -22,7 +22,7 @@ const Video = sequelize.define(
     uploadedBy: {
       type: DataTypes.INTEGER,
       allowNull: true,
-      references: { model: "User", key: "id" },
+      references: { model: "users", key: "id" },
     },
   },
   { timestamps: true }

@@ -1,7 +1,4 @@
-const User = require("../models/User");
-const Payment = require("../models/Payment");
-const Announcement = require("../models/Announcement");
-const Event = require("../models/Event");
+const { User, Payment, Announcement, Event } = require("../models");
 
 const getDashboardStats = async (req, res) => {
   try {
@@ -52,7 +49,7 @@ const getProfile = async (req, res) => {
 
 const getAllUsers = async (req, res) => {
   try {
-    const users = await User.findAll({
+    const allUsers = await User.findAll({
       attributes: [
         "id",
         "name",
@@ -63,7 +60,7 @@ const getAllUsers = async (req, res) => {
         "createdAt",
       ],
     });
-    res.status(200).json(users);
+    res.status(200).json(allUsers);
   } catch (error) {
     res.status(500).json({
       message: "Internal server error",

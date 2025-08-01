@@ -1,6 +1,6 @@
 const jwt = require("jsonwebtoken");
 const bcrypt = require("bcrypt");
-const User = require("../models/User");
+const { User } = require("../models");
 
 const register = async (req, res) => {
   try {
@@ -21,7 +21,7 @@ const register = async (req, res) => {
       name,
       email,
       password,
-      role: role || "user",
+      role: "user",
       phone,
       address,
     });
@@ -55,6 +55,7 @@ const login = async (req, res) => {
   try {
     const { email, password } = req.body;
     console.log("Login request received:", { email }); // Debug log
+
     const user = await User.findOne({ where: { email } });
     if (!user) {
       console.log("User not found:", email);
@@ -103,6 +104,7 @@ const verifyToken = async (req, res) => {
     }
 
     const decoded = jwt.verify(token, process.env.JWT_SECRET);
+
     const user = await User.findByPk(decoded.id);
     if (!user) {
       return res

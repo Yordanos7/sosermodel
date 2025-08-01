@@ -1,11 +1,11 @@
 const express = require("express");
 const authMiddleware = require("../middleware/authMiddleware");
+const upload = require("../middleware/uploadMIddleware");
 const {
   createPayment,
   getPayments,
   updatePayment,
   deletePayment,
-  upload,
   getMyPayments,
 } = require("../controllers/paymentController");
 const roleMiddleware = require("../middleware/roleMiddleware");

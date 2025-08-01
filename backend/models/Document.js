@@ -51,6 +51,11 @@ const Document = sequelize.define(
       type: DataTypes.STRING,
       allowNull: false,
     },
+    uploadedBy: {
+      type: DataTypes.INTEGER,
+      allowNull: false,
+      references: { model: "users", key: "id" },
+    },
   },
   { timestamps: true }
 );

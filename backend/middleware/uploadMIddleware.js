@@ -1,32 +1,40 @@
 const multer = require("multer");
 const path = require("path");
 
+// Set up storage engine
 const storage = multer.diskStorage({
-  destination: (req, file, cb) => {
-    cb(null, "uploads/");
-  },
-  filename: (req, file, cb) => {
-    cb(null, `${Date.now()}-${file.originalname}`); // here i create a unique filename using lol time
+  destination: "./uploads/",
+  filename: function (req, file, cb) {
+    cb(
+      null,
+      file.fieldname + "-" + Date.now() + path.extname(file.originalname)
+    );
   },
 });
 
-const fileFilter = (req, file, cb) => {
-  const allowedTypes = /jpeg|jpg|png|gif|pdf/;
-  const extname = allowedTypes.test(
-    path.extname(file.originalname).toLowerCase()
-  );
-  const mimetype = allowedTypes.test(file.mimetype);
-  if (extname && mimetype) {
-    return cb(null, true);
-  }
-  cb(
-    new Error(
-      "Error: File upload only supports the following filetypes - " +
-        allowedTypes.toString().replace(/,/g, ", ")
-    )
-  );
-};
+// Initialize upload
+const upload = multer({
+  storage: storage,
+  limits: { fileSize: 50000000 }, // 50MB limit
+  fileFilter: function (req, file, cb) {
+    checkFileType(file, cb);
+  },
+});
 
-const upload = multer({ storage, fileFilter });
+// Check file type
+function checkFileType(file, cb) {
+  // Allowed ext
+  const filetypes = /jpeg|jpg|png|gif/;
+  // Check ext
+  const extname = filetypes.test(path.extname(file.originalname).toLowerCase());
+  // Check mime
+  const mimetype = filetypes.test(file.mimetype);
+
+  if (mimetype && extname) {
+    return cb(null, true);
+  } else {
+    cb("Error: Images Only!");
+  }
+}
 
 module.exports = upload;

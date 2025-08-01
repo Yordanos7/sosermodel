@@ -5,7 +5,11 @@ const bcrypt = require("bcrypt");
 const User = sequelize.define(
   "User",
   {
-    id: { type: DataTypes.INTEGER, autoIncrement: true, primaryKey: true },
+    id: {
+      type: DataTypes.INTEGER,
+      autoIncrement: true,
+      primaryKey: true,
+    },
     name: { type: DataTypes.STRING(100), allowNull: false },
     email: {
       type: DataTypes.STRING(150),
@@ -23,7 +27,7 @@ const User = sequelize.define(
     address: { type: DataTypes.STRING(255), allowNull: true },
   },
   {
-    tableName: "User", // Explicitly set table name to match database
+    tableName: "users", // Explicitly set table name to match database
     hooks: {
       beforeCreate: async (user) => {
         user.password = await bcrypt.hash(user.password, 10);

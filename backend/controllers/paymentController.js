@@ -1,23 +1,23 @@
 const { Payment, User } = require("../models");
-const multer = require("multer");
-
-const storage = multer.diskStorage({
-  destination: (req, file, cb) => {
-    cb(null, "uploads/");
-  },
-  filename: (req, file, cb) => {
-    cb(null, `${Date.now()}-${file.originalname}`);
-  },
-});
-const upload = multer({ storage });
 
 const createPayment = async (req, res) => {
   try {
     const { amount, transactionId, paymentMethod, transactionLink } = req.body;
-    const userId = req.user.id;
-    const screenshot = req.file ? `uploads/${req.file.filename}` : null;
+    const userId = req.user ? req.user.id : null;
+    const screenshot = req.file ? req.file.path : null;
 
-    if (!amount || !screenshot || !transactionLink) {
+    if (!userId) {
+      return res.status(401).json({ message: "User not authenticated" });
+    }
+
+    const user = await User.findByPk(userId);
+    if (!user) {
+      return res
+        .status(400)
+        .json({ message: "Invalid user ID: User does not exist" });
+    }
+
+    if (!amount || !screenshot || !transactionId) {
       return res.status(400).json({ message: "Missing required fields" });
     }
 
@@ -37,7 +37,7 @@ const createPayment = async (req, res) => {
     });
   } catch (error) {
     res.status(500).json({
-      message: "Internal server error in createPayment",
+      message: "Internal server error",
       error: error.message,
     });
   }
@@ -150,6 +150,5 @@ module.exports = {
   getPayments,
   deletePayment,
   updatePayment,
-  upload,
   getMyPayments,
 };

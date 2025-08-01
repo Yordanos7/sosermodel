@@ -1,7 +1,7 @@
 const express = require("express");
 const authMiddleware = require("../middleware/authMiddleware");
 const roleMiddleware = require("../middleware/roleMiddleware");
-const upload = require("../middleware/uploadMiddleware");
+const upload = require("../middleware/uploadMIddleware");
 const {
   createDocument,
   getDocuments,

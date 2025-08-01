@@ -1,5 +1,4 @@
 const { Announcement, User } = require("../models");
-const upload = require("../middleware/uploadMiddleware");
 
 const createAnnouncement = async (req, res) => {
   try {
@@ -14,9 +13,7 @@ const createAnnouncement = async (req, res) => {
       tags,
     } = req.body;
     const userId = req.user.id; // From authMiddleware
-    const attachments = req.files
-      ? req.files.map((file) => `uploads/${file.filename}`).join(",")
-      : null;
+    const attachments = null;
 
     if (!title || !content || !category) {
       return res
@@ -42,6 +39,7 @@ const createAnnouncement = async (req, res) => {
       announcement,
     });
   } catch (error) {
+    console.error("Error creating announcement:", error);
     res.status(500).json({
       message: "Internal server error while creating announcement",
       error: error.message,
@@ -61,7 +59,7 @@ const getAnnouncements = async (req, res) => {
       ],
       order: [["publishDate", "DESC"]],
     });
-    res.status(200).json(announcements);
+    res.status(200).json({ announcements: announcements });
   } catch (error) {
     res.status(500).json({
       message: "Internal server error while retrieving announcements",
@@ -83,9 +81,6 @@ const updateAnnouncement = async (req, res) => {
       targetAudience,
       tags,
     } = req.body;
-    const attachments = req.files
-      ? req.files.map((file) => `uploads/${file.filename}`).join(",")
-      : null;
     const announcement = await Announcement.findByPk(id);
 
     if (!announcement) {
@@ -102,7 +97,6 @@ const updateAnnouncement = async (req, res) => {
     announcement.expiryDate = expiryDate || announcement.expiryDate;
     announcement.targetAudience = targetAudience || announcement.targetAudience;
     announcement.tags = tags || announcement.tags;
-    if (attachments) announcement.attachments = attachments;
 
     await announcement.save();
 
@@ -140,5 +134,4 @@ module.exports = {
   getAnnouncements,
   updateAnnouncement,
   deleteAnnouncement,
-  upload,
 };

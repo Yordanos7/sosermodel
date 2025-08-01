@@ -1,0 +1,7 @@
+# DO NOT REMOVE. CLOUDLINUX PASSENGER CONFIGURATION BEGIN
+PassengerAppRoot "/home/soseruwv/soserunion.com"
+PassengerBaseURI "/api"
+PassengerNodejs "/home/soseruwv/nodevenv/soserunion.com/20/bin/node"
+PassengerAppType node
+PassengerStartupFile "server.js"
+# DO NOT REMOVE. CLOUDLINUX PASSENGER CONFIGURATION END

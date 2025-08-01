@@ -19,11 +19,11 @@ const Announcement = sequelize.define(
     attachments: { type: DataTypes.TEXT, allowNull: true }, // JSON string or comma-separated
     postedBy: {
       type: DataTypes.INTEGER,
-      allowNull: false,
-      references: { model: "User", key: "id" },
+      allowNull: true,
+      references: { model: "users", key: "id" },
     },
   },
-  { timestamps: true }
+  { timestamps: true, tableName: "Announcements" }
 );
 
 module.exports = Announcement;
